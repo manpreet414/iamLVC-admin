@@ -1,0 +1,5 @@
+.picker__year-display{color:#26a69a !important}
+.picker__year{display: none !important}
+.add-btn{    position: absolute; right: 30px;     top: 19px;}
+.btn{background:#58b392}
+.btn:hover{background:#26a69a}

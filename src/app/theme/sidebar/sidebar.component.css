@@ -1,0 +1,14 @@
+@media(max-width:1100px) {
+	.left-nav-custom{margin-top: 22px;}
+}
+
+.left-sub-menu ul li a:hover {
+    background: none;
+    padding-left: 20px;
+}
+
+.left-sub-menu ul li a {
+    display: block;
+    font-size: 13.5px;
+    padding: 10px 30px;
+}

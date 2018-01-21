@@ -1,0 +1,22 @@
+.blog-login-in a { display: unset; }
+.loginlink { margin-top: 25px; text-align: right; }
+.mt10 { margin-top: 10px; }
+.for-signup {
+    text-align: right;
+    padding-top: 15px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #34A853;
+    letter-spacing: 1px;
+}
+.loginlink a:hover {
+    color: #075175;
+}
+.for-pass {
+    text-align: right;
+    padding-top: 15px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #58b392;
+    letter-spacing: 1px;
+}

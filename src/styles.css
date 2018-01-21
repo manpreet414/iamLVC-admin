@@ -1,0 +1,162 @@
+/* You can add global styles to this file, and also import other style files */
+#toast-container {
+    top: 0%;
+    right: 1%;
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  background-color: #58b392;
+  border-color: #58b392;
+}
+
+a {
+  color: #58b392;
+}
+
+.bootstrap-paginator-footer {
+  margin: -8px;
+}
+
+.bootstrap-paginator-footer .total-summary{
+  margin-top: 25px;
+}
+
+.inn-title{
+  padding-top: 15px;
+  padding-right: 25px;
+  padding-bottom: 15px;
+  padding-left: 25px;
+}
+
+.w-10{width:10%}
+.w-5{width:5%}
+.w-15{width: 15%}
+.w-45{width:45%}
+.w-25{width:25%}
+.w-40{width:40%}
+.w-20{width:20%}
+.w-70{width: 70%}
+.w-75{width: 75%}
+.w-60{width: 60%}
+.w-55{width: 55% }
+.w-100{width: 100%}
+.clear{padding-top: 50px;}
+.center-align{text-align: center}
+.left-align{text-align: left}
+.right-align{text-align: right}
+
+.header-label{margin-top:7px}
+.icon-pos{ /*margin-left: 15px;*/}
+.btn{background:#58b392}
+.btn:hover, .btn-large:hover{background:#58b392}
+.app-search{margin:0px 15px 0px 15px}
+
+.picker__weekday-display,  .picker__year, .picker__year-display{display: none}
+.picker__date-display{display: block;}
+.clockpicker-display-column  {display: none}
+.clockpicker-display-am-pm{display: block!important; padding: 1px 0px 0px 0px !important;}
+
+.question {
+  margin-bottom: 30px;
+}
+
+.inn-title {
+  padding: 15px;
+}
+
+label.required:after {
+  content:" *";
+}
+
+
+
+.select-dropdown-lang{
+  display: block;
+  display: block;
+  margin: 0px 0px 0px 5px;
+  padding: 0 0 0 0;
+  width: 90px;
+  float: right;
+  height: 35px;
+  border-radius: 2px;
+}
+.inn-title input {
+    color: #fff;
+}
+.record-label {
+  font-size: medium;
+}
+.cancel{
+  background-color: #eaebeb !important;
+  box-shadow: none;
+  color: #494a4a !important;
+}
+
+
+.inn-title span.caret{
+    color: #fff;
+}
+
+.select-wrapper input.select-dropdown {
+  height: 35px;
+  padding-top: 10px;
+}
+
+.order-view .row{
+  margin-top: 20px;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+.cyan {
+    background-color: #ffd8da !important;
+}
+.icon-trump{
+  height: 38px !important;
+  width: 33px !important;
+}
+.icon-trump-form{
+  height: 76px !important;
+  width: 66px !important;
+}
+.blocks{
+  /*padding-top: 30px;*/
+    margin-left: 38px ;
+}
+/*.dash-book h5 {
+    font-size: 24px;
+    color: #fff;
+}
+
+.dash-b-2 {
+
+    background: #263238;
+        min-height: 245px;
+}*/
+.tab-inn2 {
+    padding: 4px;
+    min-height: 400px;
+}
+.sb2-2-1-1{
+      min-height: 250px;
+
+}
+
+div.header-logo{
+  padding: 15px 0 0 50px ;
+  font-size: 18px ;
+}
+div.header-logo a.logo-admin {
+  color: #263238 ;
+}
+
+.blog-login div.signup {
+    width: 50% !important;
+}
+

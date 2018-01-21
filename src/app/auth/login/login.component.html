@@ -1,0 +1,42 @@
+<div [ngBusy]="busy"></div>
+<div class="blog-login">
+    <div class="blog-login-in">
+        <form #loginForm="ngForm" (ngSubmit)="login()">
+            <img src="assets/images/symhiosislogo.png" alt="" />
+            <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" class="mb-text" name="email" id="email" pattern="^\w+([\.-]?\w+)@[\w-]{2,}([.][\w]{2,}|[.][\w-]{2,}[.][\w]{2,})$" minlength="3" maxlength="50" [(ngModel)]="user.email" #email="ngModel" required email>
+                  <label for="email">Email</label>
+
+                  <div *ngIf="email.errors && email.touched" class="text-danger">
+                    <p *ngIf="email.errors?.required">Email address is mandatory.</p>
+                    <p *ngIf="email.errors.minlength">Minimum of 3 characters</p>
+                    <p *ngIf="(email.errors?.minlength == ture) && (email.errors?.pattern)">Please type valid email address.</p>
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="password" class="mb-text" name="password" id="password" minlength="3" maxlength="20" [(ngModel)]="user.password" #password="ngModel" required>
+                    <label for="last_name">Password</label>
+
+                    <div *ngIf="password.errors && password.touched" class="text-danger">
+                      <p *ngIf="password.errors?.required">Password is mandatory.</p>
+                      <p *ngIf="password.errors.minlength">Minimum of 3 characters</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                  <input type="submit" class="waves-effect waves-light btn-large" style="width: 100%;" value="Login" [disabled]="!loginForm.valid">
+                </div>
+            </div>
+            <div class="row loginlink">
+                <div class="col-md-12 mt10">
+                    <a routerLink="/forgot-password" class="for-pass">Forgot Password?</a>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+</div>
