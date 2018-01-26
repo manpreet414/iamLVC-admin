@@ -1,0 +1,57 @@
+@media (max-width: 1120px){
+    .banner-text h4:before, .banner-text h4:after {width: 20%}
+    .shadow-box .img-wrap img { height: 100% }
+}
+@media (max-width: 992px){
+    .step-wrap { min-height: 250px }
+    .box-wrap h3:before, .banner-img h4:before
+    .box-wrap h3:after, .banner-img h4:after {
+        width: 20%
+    }
+    .nav.navbar-nav li a { font-size: 12px}
+    .banner-text h4:before, .banner-text h4:after {width: 10%}
+    footer .container { width: 100% }
+}
+@media (max-width: 768px){
+    .box-wrap h3:before, .banner-img h4:before,
+    .box-wrap h3:after, .banner-img h4:after,
+    .banner-text h4:before, .banner-text h4:after {
+        width: 15%
+    }
+    .step-wrap, .shadow-box .text-wrap p {
+    min-height: auto;
+}
+.shadow-box {margin: 15px auto; padding-top: 15px } 
+.nav.navbar-nav , .nav.navbar-nav li{display: block; margin: 0 auto}
+.nav.navbar-nav li a {color: #fff; margin-bottom:2px} 
+.nav.navbar-nav li a:hover, .nav.navbar-nav li.active a { color: #fff; text-decoration: none; background-color: rgba(35,133,148,1) }
+footer .nav navbar-nav {display: block}
+.nav.navbar-nav li.brand-logo {display: none}
+footer .nav.navbar-nav li {
+    display: block;
+    float: left;
+    width: 33.33%;
+}
+ 
+.mobile-logo {display: inline-block; width: 102px; height: 103px} 
+ }
+ @media (max-width: 600px){
+     .right-section, .left-section {width: 100%}
+ }
+ @media (max-width:480px){
+     .box-wrap h3, .banner-img h4, .banner-text h4 {font-size: 24px}
+     box-wrap h3:before, .banner-img h4:before,
+    .box-wrap h3:after, .banner-img h4:after,
+    .banner-text h4:before, .banner-text h4:after , .box-wrap h3:before, .banner-img h4:before, .banner-text h4:before{
+        display: none
+    }
+    .banner-text-wrap h1 {font-size: 37px; line-height: 37px}
+    .banner-text-wrap {
+    float: none;
+    margin: 74px auto 25px;
+    width: 69%;
+    position: relative;
+    text-align: center;
+}
+.banner-wrap {height: auto; padding-bottom: 40px}
+ }
