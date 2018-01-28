@@ -74,6 +74,7 @@ exports.loginAdmmin = function(req, res, next) {
                         _id: user._id,
                         email: user.email,
                         name: user.name,
+                        firstName:user.firstName,
                         is_admin: user.is_admin,
                         password: user.password,
                         mobile_number: user.mobile_number

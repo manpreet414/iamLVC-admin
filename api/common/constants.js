@@ -18,8 +18,13 @@ const messages = {
 }
 
 const adminUrl = {
-    url: "localhost:4001",
+    url: "http://localhost:4300",
     forgotPostRoute: "/#/forgot-password/reset/"
+}
+
+const frontendUrl = {
+    url: "http://localhost:4200",
+    forgotPostRoute: "/forgot-password/reset/"
 }
 
 const mailContent = {
@@ -36,6 +41,7 @@ const mailContent = {
 var obj = {
     messages: messages,
     adminUrl: adminUrl,
+    frontendUrl:frontendUrl,
     mailContent: mailContent
 };
 

@@ -9,7 +9,7 @@ module.exports = function(app, express) {
 	// authentication
 	app.post('/api/register', authenticationController.register);
 	app.post('/api/login', authenticationController.login);
-	app.post('/api/logout', authenticationController.logout);
-	app.get('/api/verifyEmail', authenticationController.verifyEmail);
-
+	app.post('/api/forgotpassword', authenticationController.forgotPassword); // Forgot Password
+    app.post('/api/reset/:token', authenticationController.resetPassword); // Forgot Password
+    
 }
