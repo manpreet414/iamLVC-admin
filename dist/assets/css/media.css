@@ -1,5 +1,4 @@
 @media (max-width: 1120px){
-    .banner-text h4:before, .banner-text h4:after {width: 20%}
     .shadow-box .img-wrap img { height: 100% }
 }
 @media (max-width: 992px){
@@ -11,12 +10,18 @@
     .nav.navbar-nav li a { font-size: 12px}
     .banner-text h4:before, .banner-text h4:after {width: 10%}
     footer .container { width: 100% }
+    .box-wrap.survey-wrap h3:before,
+    .box-wrap.survey-wrap h3:after {
+        width: 15%
+    }
 }
 @media (max-width: 768px){
+    
+     .right-section, .left-section {width: 100%; left: auto; right: auto}
     .box-wrap h3:before, .banner-img h4:before,
     .box-wrap h3:after, .banner-img h4:after,
     .banner-text h4:before, .banner-text h4:after {
-        width: 15%
+        width: 5%
     }
     .step-wrap, .shadow-box .text-wrap p {
     min-height: auto;
@@ -32,11 +37,15 @@ footer .nav.navbar-nav li {
     float: left;
     width: 33.33%;
 }
- 
+ .carousel-indicators {
+    bottom: -85px;
+}
 .mobile-logo {display: inline-block; width: 102px; height: 103px} 
+.quest-wrap:before{top: -20px; left: -10px}
+.quest-wrap:after{bottom: -10px; right: -10px}
  }
  @media (max-width: 600px){
-     .right-section, .left-section {width: 100%}
+.right-sec, .left-sec {width: 100%; padding: 0; border: 0 }
  }
  @media (max-width:480px){
      .box-wrap h3, .banner-img h4, .banner-text h4 {font-size: 24px}
