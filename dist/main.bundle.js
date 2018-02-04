@@ -606,10 +606,10 @@ var RegisterComponent = /** @class */ (function () {
         this.user = new __WEBPACK_IMPORTED_MODULE_3__models_user__["a" /* User */]();
     }
     RegisterComponent.prototype.ngOnInit = function () {
-        this.cardNumber = 4242424242424242;
-        this.expMonth = 12;
-        this.expYear = 2022;
-        this.CVC = 123;
+        // this.cardNumber = 4242424242424242;
+        // this.expMonth = 12;
+        // this.expYear = 2022;
+        // this.CVC = 123;
         this.formHandling();
     };
     RegisterComponent.prototype.getToken = function () {
