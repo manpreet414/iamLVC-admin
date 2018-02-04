@@ -20,6 +20,14 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: Date.now()
     },
+    paymentmethods : { 
+        card_type : String,
+        cardbrand : String,
+        nick_name : String,
+        masked_number : String,
+        multipay_source_id : String,
+        multipay_cust_id : String
+    },
     passwordResetToken: String,
     passwordResetExpires: Date,
     firstName: String,

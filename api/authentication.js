@@ -1,14 +1,15 @@
 import mongoose from 'mongoose';
 import moment from 'moment';
 import User from './models/users.js';
-let async = require('async');
+let Async = require('async');
 let crypto = require('crypto');
 let jwt = require('jsonwebtoken');
 let fs = require('fs');
 let path = require('path');
 let constantObj = require('./common/constants.js');
 let commonObj = require('./common/common');
-
+var stripe = require("stripe")('sk_test_fmSOrUF8BNMRW4SeAqFICiFl');
+const { wrap: async } = require('co');
 
 function generateToken(user) {
     let payload = {
@@ -54,41 +55,110 @@ module.exports.register = function(req, res) {
             msg: constantObj.messages.requiredParams,
             err: error
         });
+    } else {
+        return registerUser(req,res);
     }
 
-    let userObj          = req.body;
-    userObj['fullName']  = userObj.firstName + ' ' + userObj.lastName;
-    userObj['is_active'] = true;
 
-    User.findOne({ email: userObj.email }, function (err, rec) {
-        if(rec) {
+};
+
+const registerUser = async(function *(req,res) {
+    try {
+        let userObj          = req.body;
+        userObj['fullName']  = userObj.firstName + ' ' + userObj.lastName;
+        userObj['is_active'] = true;
+    
+        let token_id = userObj.token_id;
+        let user = yield  User.findOne({ email: req.body.email });
+    
+        if(user) {
             return res.status(200).send({
                 error: true,
                 msg: constantObj.messages.emailAlreadyExist,
             })
         } else {
-    
-            //Store password in a variable
-            // let password = userObj.password;
-            //Remove password key from requested object
-            // delete userObj.password;
-
-            let user = new User(userObj);
-            //Set user password
-            // user.setPassword(password);
-           
-            //save user info
-            user.save(function(err, result) {
-                //insert current day quotes data into user quotes collection.
-                return res.status(200).send({
-                    error: false,
-                    msg: constantObj.messages.userSuccess,
-                    "data": result
-                })
+            var customer = yield stripe.customers.create({
+              description: userObj.email
             });
+            
+            let cardObj = yield addCardInStripe(customer.id,token_id);
+            let amount = 36;
+            
+            let charge = yield addChargeInStripe(amount * 100,"USD",cardObj.multipay_source_id,customer.id);
+            userObj['paymentmethods'] = cardObj;
+            let user = new User(userObj);
+            //save user info
+            let savedUser = yield user.save();
+            return res.status(200).send({
+                error: false,
+                msg: constantObj.messages.userSuccess,
+                data: savedUser
+            })
         }
+    } catch(error) {
+        console.log("err",e)
+        return res.status(200).send({
+            error: true,
+            msg: "There are some problem with payment.",
+            err:error
+        })
+    }    
+})
+
+
+
+const addCardInStripe = function*(customer_id,token_id) {
+    try {
+    
+        var card = yield stripe.customers.createCard( customer_id,{ card: token_id });
+        var card_data = {};
+        card_data['card_type'] = card.funding;
+        card_data['cardbrand'] = card.brand;
+        card_data['nick_name'] = card.name;
+        card_data['masked_number'] = card.last4;
+        card_data['multipay_source_id'] = card.id; 
+        card_data['multipay_cust_id'] = customer_id;    
+        return card_data; 
+  
+    } catch(err) {
+    
+        console.log("err in card" , err);
+        if (err.type === 'StripeCardError') {
+          throw new Error(err.raw.message);
+        } else if (err.type === 'StripeInvalidRequest') {
+          throw new Error("Invalid Amount");
+        } else {
+          throw err;
+        }
+    }
+}
+
+const addChargeInStripe = function*(amount,currency,token_id,customer_id) {
+
+  try {
+    var charge = yield stripe.charges.create({
+      amount: Math.floor(amount), // amount in cents, again
+      currency: currency,
+      customer: customer_id,
+      source : token_id
     });
-};
+    return charge; 
+  } catch(err) {
+    console.log("err in charge" , err);
+    if (err.type === 'StripeInvalidRequest') {
+      throw new Error(err.raw.message);
+    } else if (err.type === 'StripeCardError') {
+      throw new Error(err.raw.message);
+    } else if (err.type === 'StripeInvalidRequest') {
+      throw new Error("Invalid Amount");
+    } else if (err.type === 'StripeInvalidRequest') {
+      throw new Error("Invalid Amount");
+    } else {
+      throw err;
+    }
+  }
+}
+
 
 exports.login = function(req, res, next) {
 
@@ -172,7 +242,7 @@ exports.forgotPassword = function(req, res, next) {
         });
     }
 
-    async.waterfall([
+    Async.waterfall([
         function(done) {
             crypto.randomBytes(16, function(err, buf) {
                 let token = buf.toString('hex');
@@ -238,7 +308,7 @@ exports.resetPassword = function(req, res, next) {
         });
     }
     console.log(req.params.token);
-    async.waterfall([
+    Async.waterfall([
         function(done) {
             User.findOne({
                     passwordResetToken: req.params.token
