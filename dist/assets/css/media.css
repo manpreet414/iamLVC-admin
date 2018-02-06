@@ -15,6 +15,14 @@
         width: 15%
     }
 }
+@media(min-width: 768px){
+    .team-list li:nth-child(2n) .col-sm-4{
+        left: 66.6667%
+    }
+    .team-list li:nth-child(2n) .col-sm-8 {
+    right: 33.3333%;
+}
+}
 @media (max-width: 768px){
     
      .right-section, .left-section {width: 100%; left: auto; right: auto}
@@ -41,8 +49,9 @@ footer .nav.navbar-nav li {
     bottom: -85px;
 }
 .mobile-logo {display: inline-block; width: 102px; height: 103px} 
-.quest-wrap:before{top: -20px; left: -10px}
+.quest-wrap:before{top: -40px; left: -10px}
 .quest-wrap:after{bottom: -10px; right: -10px}
+.team-list p {padding-top: 25px}
  }
  @media (max-width: 600px){
 .right-sec, .left-sec {width: 100%; padding: 0; border: 0 }
@@ -63,4 +72,5 @@ footer .nav.navbar-nav li {
     text-align: center;
 }
 .banner-wrap {height: auto; padding-bottom: 40px}
+.quest-wrap { margin: 25px 0 }
  }

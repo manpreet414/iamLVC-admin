@@ -21,7 +21,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/theme/footer/footer.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<footer>\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <figure>\n                    <img src=\"assets/images/whitelogo.png\" alt=\"\" />\n                </figure>\n                <div class=\"footer-text\">\n                    <nav class=\"navbar\" role=\"navigation\">\n                        <ul class=\"nav navbar-nav\">\n                            <li class=\"active\"><a href=\"#\">Home</a></li>\n                            <li><a href=\"javascript:void(0)\">Online Course</a></li>\n                            <li><a href=\"javascript:void(0)\">Free LVC Exercises</a></li>\n                            <li><a href=\"javascript:void(0)\">I  Am LVC Videos</a></li>\n                            <li><a href=\"javascript:void(0)\">I Am LVC Story</a></li>\n                            <li><a href=\"javascript:void(0)\">Contact Us</a></li>\n                        </ul>  \n                    </nav>\n                </div>\n            </div>\n        </div>\n    </div>\n</footer>"
+module.exports = "<footer>\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <figure>\n                    <img src=\"assets/images/whitelogo.png\" alt=\"\" />\n                </figure>\n                <div class=\"footer-text\">\n                    <nav class=\"navbar\" role=\"navigation\">\n                        <ul class=\"nav navbar-nav\">\n                            <li class=\"active\"><a href=\"#\">Home</a></li>\n                            <li><a href=\"javascript:void(0)\">Online Course</a></li>\n                            <li><a href=\"javascript:void(0)\">Free LVC Exercises</a></li>\n                            <li><a href=\"#/pages/videos\">I  Am LVC Videos</a></li>\n                            <li><a href=\"#/pages/story\">I Am LVC Story</a></li>\n                            <li><a href=\"#/pages/contactus\">Contact Us</a></li>\n                        </ul>  \n                    </nav>\n                </div>\n            </div>\n        </div>\n    </div>\n</footer>"
 
 /***/ }),
 
@@ -82,7 +82,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/theme/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"top-header\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <ul>\n                    <li *ngIf=\"!user\"><a href=\"#/login\"><span><i class=\"fa fa-user\" aria-hidden=\"true\"></i></span>Login</a></li>\n                    <li *ngIf=\"user\"><a href=\"javascript:void(0)\"><span><i class=\"fa fa-user\" aria-hidden=\"true\"></i></span>Hi {{user}}</a></li>\n                    <li>|</li>\n                    <li *ngIf=\"!user\"><a href=\"#/register\"><span><i class=\"fa fa-lock\" aria-hidden=\"true\"></i></span>Register</a></li>\n                    <li *ngIf=\"user\"><a (click)=\"logout()\">Logout</a></li>\n                </ul>\n                <div class=\"pull-right\">\n                    <a href=\"javascript:void(0)\" class=\"dark-blue\">Start Now!</a>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
+module.exports = "<div class=\"top-header\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <ul>\n                    <li *ngIf=\"!user\"><a href=\"#/login\"><span><i class=\"fa fa-user\" aria-hidden=\"true\"></i></span>Login</a></li>\n                    <li *ngIf=\"user\"><a href=\"javascript:void(0)\"><span><i class=\"fa fa-user\" aria-hidden=\"true\"></i></span>Hi {{user}}</a></li>\n                    <li>|</li>\n                    <li *ngIf=\"!user\"><a href=\"#/register\"><span><i class=\"fa fa-lock\" aria-hidden=\"true\"></i></span>Register</a></li>\n                    <li *ngIf=\"user\"><a (click)=\"logout()\">Logout</a></li>\n                </ul>\n                <div class=\"pull-right\">\n                    <a href=\"javascript:void(0)\" class=\"dark-blue\">Start Now!</a>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<app-sub-header></app-sub-header>\n"
 
 /***/ }),
 
@@ -151,7 +151,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/theme/layout/layout.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<router-outlet></router-outlet>\n<app-footer></app-footer>\n"
+module.exports = "<app-header></app-header>\n\t<router-outlet></router-outlet>\n<app-footer></app-footer>\n"
 
 /***/ }),
 
@@ -220,6 +220,10 @@ var routes = [
             {
                 path: 'survey',
                 loadChildren: 'app/survey/survey.module#SurveyModule'
+            },
+            {
+                path: 'pages',
+                loadChildren: 'app/pages/pages.module#PagesModule'
             }
         ]
     }
