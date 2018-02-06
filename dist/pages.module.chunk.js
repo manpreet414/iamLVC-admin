@@ -61,6 +61,67 @@ var ContactusComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/pages/courseinstructions/courseinstructions.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/courseinstructions/courseinstructions.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"box-wrap survey-wrap story editprofile\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <h3>Course Instructions</h3>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <p>This program works best when you do the exercises in the order provided and when you do one exercise every 2-3 days, preferably in the morning. The number of days you choose to have between each exercise will depend on how much you would like to practice implementing what you just learned before moving to the next exercise. Most exercises will take 10-20 minutes to complete, and then you will practice implementing them throughout the next few days.</p>\n                <p>In the list of the exercises that were chosen for you, it also lists the approximate amount of time each exercise will take to complete.</p>\n                <p>To set yourself up for success, we suggest that you plan out right now when you will do each exercise and that you block out the time in your calendar for the exercises each day. For example, if exercise one will take 20 minutes, you may choose to block out 6-6:20am for exercise 1 tomorrow. If exercise 2 will take 10 minutes, you may choose to block out 7-7:10am for exercise 2 a few days from now.</p>\n                <p>For as long as you choose to have access to the course, you can always go back and review past exercises.</p>\n                <p>Each time you log into the course and each time you complete an exercise, you will take a short survey. This will allow you to track the progress you are making as you proceed through the exercises.</p>\n            </div>\n            <div class=\"col-sm-12 text-center\">\n                <input type=\"submit\" name=\"edit-submit\" id=\"edit-submit\" tabindex=\"4\" class=\"form-control btn blue-border\" value=\"Proceed to my course list!\">\n            </div>\n        </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/courseinstructions/courseinstructions.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CourseinstructionsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CourseinstructionsComponent = /** @class */ (function () {
+    function CourseinstructionsComponent() {
+    }
+    CourseinstructionsComponent.prototype.ngOnInit = function () {
+    };
+    CourseinstructionsComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-courseinstructions',
+            template: __webpack_require__("../../../../../src/app/pages/courseinstructions/courseinstructions.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/pages/courseinstructions/courseinstructions.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], CourseinstructionsComponent);
+    return CourseinstructionsComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/pages/pages-routing.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -71,12 +132,14 @@ var ContactusComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contactus_contactus_component__ = __webpack_require__("../../../../../src/app/pages/contactus/contactus.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__story_story_component__ = __webpack_require__("../../../../../src/app/pages/story/story.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__videos_videos_component__ = __webpack_require__("../../../../../src/app/pages/videos/videos.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__courseinstructions_courseinstructions_component__ = __webpack_require__("../../../../../src/app/pages/courseinstructions/courseinstructions.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -94,6 +157,10 @@ var routes = [
     {
         path: 'videos',
         component: __WEBPACK_IMPORTED_MODULE_4__videos_videos_component__["a" /* VideosComponent */]
+    },
+    {
+        path: 'courseinstructions',
+        component: __WEBPACK_IMPORTED_MODULE_5__courseinstructions_courseinstructions_component__["a" /* CourseinstructionsComponent */]
     }
 ];
 var PagesRoutingModule = /** @class */ (function () {
@@ -125,12 +192,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__contactus_contactus_component__ = __webpack_require__("../../../../../src/app/pages/contactus/contactus.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__story_story_component__ = __webpack_require__("../../../../../src/app/pages/story/story.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__videos_videos_component__ = __webpack_require__("../../../../../src/app/pages/videos/videos.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__courseinstructions_courseinstructions_component__ = __webpack_require__("../../../../../src/app/pages/courseinstructions/courseinstructions.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -148,7 +217,12 @@ var PagesModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_3__pages_routing_module__["a" /* PagesRoutingModule */],
                 __WEBPACK_IMPORTED_MODULE_2__shared_shared_module__["a" /* SharedModule */]
             ],
-            declarations: [__WEBPACK_IMPORTED_MODULE_4__contactus_contactus_component__["a" /* ContactusComponent */], __WEBPACK_IMPORTED_MODULE_5__story_story_component__["a" /* StoryComponent */], __WEBPACK_IMPORTED_MODULE_6__videos_videos_component__["a" /* VideosComponent */]]
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_4__contactus_contactus_component__["a" /* ContactusComponent */],
+                __WEBPACK_IMPORTED_MODULE_5__story_story_component__["a" /* StoryComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__videos_videos_component__["a" /* VideosComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__courseinstructions_courseinstructions_component__["a" /* CourseinstructionsComponent */]
+            ]
         })
     ], PagesModule);
     return PagesModule;

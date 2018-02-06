@@ -21,7 +21,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/theme/footer/footer.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<footer>\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <figure>\n                    <img src=\"assets/images/whitelogo.png\" alt=\"\" />\n                </figure>\n                <div class=\"footer-text\">\n                    <nav class=\"navbar\" role=\"navigation\">\n                        <ul class=\"nav navbar-nav\">\n                            <li class=\"active\"><a href=\"#\">Home</a></li>\n                            <li><a href=\"javascript:void(0)\">Online Course</a></li>\n                            <li><a href=\"javascript:void(0)\">Free LVC Exercises</a></li>\n                            <li><a href=\"#/pages/videos\">I  Am LVC Videos</a></li>\n                            <li><a href=\"#/pages/story\">I Am LVC Story</a></li>\n                            <li><a href=\"#/pages/contactus\">Contact Us</a></li>\n                        </ul>  \n                    </nav>\n                </div>\n            </div>\n        </div>\n    </div>\n</footer>"
+module.exports = "<footer>\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <figure>\n                    <img src=\"assets/images/whitelogo.png\" alt=\"\" />\n                </figure>\n                <div class=\"footer-text\">\n                    <nav class=\"navbar\" role=\"navigation\">\n                        <ul class=\"nav navbar-nav\">\n                            <li class=\"active\"><a href=\"#\">Home</a></li>\n                            <li><a href=\"#/pages/courseinstructions\">Online Course</a></li>\n                            <li><a href=\"javascript:void(0)\">Free LVC Exercises</a></li>\n                            <li><a href=\"#/pages/videos\">I  Am LVC Videos</a></li>\n                            <li><a href=\"#/pages/story\">I Am LVC Story</a></li>\n                            <li><a href=\"#/pages/contactus\">Contact Us</a></li>\n                        </ul>  \n                    </nav>\n                </div>\n            </div>\n        </div>\n    </div>\n</footer>"
 
 /***/ }),
 
@@ -224,6 +224,10 @@ var routes = [
             {
                 path: 'pages',
                 loadChildren: 'app/pages/pages.module#PagesModule'
+            },
+            {
+                path: 'profile',
+                loadChildren: 'app/profile/profile.module#ProfileModule'
             }
         ]
     }
