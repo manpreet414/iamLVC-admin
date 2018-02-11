@@ -175,7 +175,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/theme/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--== MAIN CONTRAINER ==-->\n<div class=\"container-fluid sb1\">\n    <div class=\"row\">\n        <!--== LOGO ==-->\n        <div class=\"col-md-3 col-sm-4 col-xs-6 sb1-1 header-logo\">\n            <a routerLink=\"/\" class=\"logo-admin\">\n                <img class=\"slogo\" src=\"assets/images/symhiosislogo.png\" alt=\"Symbiosis Health\" />\n            </a>\n            \n            <!-- <a href=\"#\" class=\"btn-close-menu\"><i class=\"fa fa-times\" aria-hidden=\"true\"></i></a>\n            <a href=\"#\" class=\"atab-menu\"><i class=\"fa fa-bars tab-menu\" aria-hidden=\"true\"></i></a> -->\n        </div>\n\n        <!--== MY ACCCOUNT ==-->\n        <div class=\"col-md-6 col-sm-3 col-xs-6 pull-right left-gen\">\n            <!-- Dropdown Trigger -->\n            <a materialize=\"dropdown\" class='waves-effect dropdown-button top-user-pro text-capitalize' data-activates='top-menu' style=\"padding: 15px 0px\">\n                <img src=\"assets/images/avatar_male.png\" alt=\"Avatar\">\n                {{name}} <i class=\"fa fa-angle-down\" aria-hidden=\"true\"></i>\n            </a>\n\n            <!-- Dropdown Structure -->\n            <ul id='top-menu' class='dropdown-content top-menu-sty'>\n                <li><a routerLink=\"/coaches/profile\" class=\"waves-effect\"><i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>Profile Setting</a>\n                </li>\n                <li class=\"divider\"></li>\n                <li>\n                    <a routerLink=\"/coaches/change-password\" class=\"ho-dr-con-last waves-effect\"><i class=\"fa fa-lock\" aria-hidden=\"true\"></i> Change password</a>\n                </li>\n                <li>\n                    <a routerLink=\"/login\" class=\"ho-dr-con-last waves-effect\"><i class=\"fa fa-sign-in\" aria-hidden=\"true\"></i> Logout</a>\n                </li>\n            </ul>\n        </div>\n\n        <!--== NOTIFICATION ==-->\n        <div class=\"col-md-1 tab-hide pull-right right-gen\">\n            <div class=\"top-not-cen custom-top-cen\">\n                \n            </div>\n        </div>\n        <div class=\"col-md-1 tab-hide pull-right right-gen\">\n            <div class=\"top-not-cen custom-top-cen\">\n                \n            </div>\n        </div>\n    </div>\n</div>\n"
+module.exports = "<!--== MAIN CONTRAINER ==-->\n<div class=\"container-fluid sb1\">\n    <div class=\"row\">\n        <!--== LOGO ==-->\n        <div class=\"col-md-3 col-sm-4 col-xs-6 sb1-1 header-logo\">\n            <a routerLink=\"/\" class=\"logo-admin\">\n                <img class=\"slogo\" src=\"assets/images/logo.png\" alt=\"Symbiosis Health\" />\n            </a>\n            \n            <!-- <a href=\"#\" class=\"btn-close-menu\"><i class=\"fa fa-times\" aria-hidden=\"true\"></i></a>\n            <a href=\"#\" class=\"atab-menu\"><i class=\"fa fa-bars tab-menu\" aria-hidden=\"true\"></i></a> -->\n        </div>\n\n        <!--== MY ACCCOUNT ==-->\n        <div class=\"col-md-6 col-sm-3 col-xs-6 pull-right left-gen\">\n            <!-- Dropdown Trigger -->\n            <a materialize=\"dropdown\" class='waves-effect dropdown-button top-user-pro text-capitalize' data-activates='top-menu' style=\"padding: 15px 0px\">\n                <img src=\"assets/images/avatar_male.png\" alt=\"Avatar\">\n                {{name}} <i class=\"fa fa-angle-down\" aria-hidden=\"true\"></i>\n            </a>\n\n            <!-- Dropdown Structure -->\n            <ul id='top-menu' class='dropdown-content top-menu-sty'>\n                <li><a routerLink=\"/coaches/profile\" class=\"waves-effect\"><i class=\"fa fa-cogs\" aria-hidden=\"true\"></i>Profile Setting</a>\n                </li>\n                <li class=\"divider\"></li>\n                <li>\n                    <a routerLink=\"/coaches/change-password\" class=\"ho-dr-con-last waves-effect\"><i class=\"fa fa-lock\" aria-hidden=\"true\"></i> Change password</a>\n                </li>\n                <li>\n                    <a routerLink=\"/login\" class=\"ho-dr-con-last waves-effect\"><i class=\"fa fa-sign-in\" aria-hidden=\"true\"></i> Logout</a>\n                </li>\n            </ul>\n        </div>\n\n        <!--== NOTIFICATION ==-->\n        <div class=\"col-md-1 tab-hide pull-right right-gen\">\n            <div class=\"top-not-cen custom-top-cen\">\n                \n            </div>\n        </div>\n        <div class=\"col-md-1 tab-hide pull-right right-gen\">\n            <div class=\"top-not-cen custom-top-cen\">\n                \n            </div>\n        </div>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -350,15 +350,16 @@ var SidebarComponent = (function () {
                     { name: 'Add New', link: '/category/new' }
                 ]
             },
-            { name: 'Questionnaire Management', icon: 'fa-quora',
+            { name: 'Survey Management', icon: 'fa-quora',
                 childs: [
-                    { name: 'Questionnaires', link: '' },
-                    { name: 'Add New', link: '' }
+                    { name: 'Survey', link: '/questionaire' },
+                    { name: 'Add Survey', link: '/questionaire/new' }
                 ]
             },
             { name: 'Settings', icon: 'fa-gear',
                 childs: [
-                    { name: 'Email', link: '', icon: 'fa-envelope' }
+                    // { name: 'Email', link: '', icon: 'fa-envelope' },
+                    { name: 'Contactus response', link: '', icon: 'fa-envelope' }
                 ]
             },
             { name: 'Change Password', link: '/profile/change-password', icon: 'fa-unlock-alt' },
@@ -542,6 +543,18 @@ var routes = [
             {
                 path: 'dashboard',
                 loadChildren: 'app/dashboard/dashboard.module#DashboardModule'
+            },
+            {
+                path: 'category',
+                loadChildren: 'app/category/category.module#CategoryModule'
+            },
+            {
+                path: 'questions',
+                loadChildren: 'app/questions/questions.module#QuestionsModule'
+            },
+            {
+                path: 'questionaire',
+                loadChildren: 'app/questionaire/questionaire.module#QuestionaireModule'
             }
         ]
     }

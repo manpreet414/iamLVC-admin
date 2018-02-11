@@ -111,6 +111,252 @@ var BaseService = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/shared/base-form.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BaseForm; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__constant_messages__ = __webpack_require__("../../../../../src/app/shared/constant-messages.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var BaseForm = (function (_super) {
+    __extends(BaseForm, _super);
+    function BaseForm() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.itemID = null;
+        _this.item = {};
+        _this.isEditable = false;
+        _this.launguages = [
+            { 'name': 'English', 'id': 'en' },
+            { 'name': 'Spanish', 'id': 'es' },
+            { 'name': 'Portuguese', 'id': 'pt' }
+        ];
+        _this.STATUS = {
+            confirm: "Confirmed",
+            cancel: "Canceled by User",
+            pending: "Pending",
+            suggestion_by_user: "Changed by User",
+            suggestion_by_admin: "Changed by Staff"
+        };
+        return _this;
+    }
+    BaseForm.prototype.save = function () {
+        if (this.itemID)
+            this.updateItem();
+        else
+            this.createItem();
+    };
+    BaseForm.prototype.markDirty = function () {
+        this.form.form.markAsDirty();
+        this.form.form.markAsTouched();
+    };
+    return BaseForm;
+}(__WEBPACK_IMPORTED_MODULE_1__constant_messages__["a" /* constMessages */]));
+
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('mainForm'),
+    __metadata("design:type", Object)
+], BaseForm.prototype, "form", void 0);
+//# sourceMappingURL=base-form.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/constant-messages.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return constMessages; });
+//orders
+var constMessages = (function () {
+    function constMessages() {
+        this.constantMessages = {
+            orderChange: 'Modification sent.',
+            orderStatus: 'Status updated.',
+            imageUplaoded: 'Image uploaded.',
+            uploaded: 'Uploaded successfully.',
+            // clients
+            userCreated: 'User created.',
+            userUpdated: 'User updated.',
+            userCheckedIn: 'User checked in.',
+            userStatus: 'User status updated.',
+            userDeleted: 'User deleted.',
+            // departments
+            categoryStatus: 'Category status updated.',
+            categoryDeleted: 'Category deleted.',
+            categoryCreated: 'Category created.',
+            categoryUpdated: 'Category updated.',
+            // modules
+            moduleStatus: 'Module status updated.',
+            moduleDeleted: 'Module deleted.',
+            moduleCreated: 'Module created.',
+            moduleUpdated: 'Module updated.',
+            // products
+            productStatus: 'Product status updated.',
+            productDeleted: 'Product deleted.',
+            productCreated: 'Product created.',
+            productUpdated: 'Product updated.',
+            // questions
+            questionStatus: 'Question status updated.',
+            questionDeleted: 'Question deleted.',
+            questionCreated: 'Question created.',
+            questionUpdated: 'Question updated.',
+            // roles
+            roleCreated: 'Role created.',
+            roleUpdated: 'Role updated.',
+            roleDeleted: 'Role deleted',
+            // staff
+            staffStatus: 'Staff status updated.',
+            staffDeleted: 'Staff deleted.',
+            staffCreated: 'Staff created.',
+            staffUpdated: 'Staff updated.',
+            // plans
+            planCreated: 'Plan created.',
+            planUpdated: 'Plan updated.',
+            planCheckedIn: 'Plan checked in.',
+            planStatus: 'Plan status updated.',
+            planDeleted: 'Plan deleted.',
+            // email
+            emailStatus: 'Email status updated.',
+            emailDeleted: 'Email deleted.',
+            emailCreated: 'Email created.',
+            emailUpdated: 'Email updated.',
+            errorMessage: 'Something went wrong.',
+        };
+    }
+    return constMessages;
+}());
+
+//# sourceMappingURL=constant-messages.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/listing.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Listing; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__constant_messages__ = __webpack_require__("../../../../../src/app/shared/constant-messages.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+var Listing = (function (_super) {
+    __extends(Listing, _super);
+    function Listing() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.searchTerm = '';
+        _this.rowsOnPage = 10;
+        _this.activePage = 1;
+        _this.itemsTotal = null;
+        _this.rowsInTable = [10, 25, 50];
+        _this.sortBy = "name";
+        _this.sortOrder = "asc";
+        _this.isAdmin = localStorage.getItem('isAdmin') === 'true';
+        _this.manageStaff = false;
+        _this.manageOrders = false;
+        _this.manageServices = false;
+        _this.filterParams = {
+            page: "1",
+            count: "100",
+            sort: "created_date",
+            type: ""
+        };
+        _this.item = null;
+        _this.items = [];
+        _this.tmpItems = [];
+        _this.STATUS = {
+            confirm: "Confirmed",
+            cancel: "Canceled by User",
+            pending: "Pending",
+            suggestion_by_user: "Changed by User",
+            suggestion_by_admin: "Changed by Staff"
+        };
+        _this.modalActions = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        return _this;
+    }
+    Listing.prototype.openModal = function (_item) {
+        this.item = _item;
+        this.modalActions.emit({ action: "modal", params: ['open'] });
+    };
+    Listing.prototype.closeModal = function () {
+        this.modalActions.emit({ action: "modal", params: ['close'] });
+    };
+    Listing.prototype.filterItems = function () {
+        var _this = this;
+        if (this.tmpItems.length == 0)
+            this.tmpItems = this.items;
+        this.items = this.tmpItems.filter(function (_item) { return _item.name.toLowerCase().lastIndexOf(_this.searchTerm.trim().toLowerCase()) != -1; });
+    };
+    Listing.prototype.onPageChange = function (event) {
+        this.rowsOnPage = event.rowsOnPage;
+        this.activePage = event.activePage;
+    };
+    Listing.prototype.searchEquipment = function (event) {
+        // this.searchTerm = this.searchTerm.trimLeft();
+        this.activePage = 1;
+        this.filterItems();
+    };
+    Listing.prototype.isAccessible = function () {
+        return localStorage.getItem('isAdmin') === 'true';
+    };
+    Listing.prototype.objectSort = function (key, order) {
+        if (order === void 0) { order = 'asc'; }
+        return function (a, b) {
+            if (!a.hasOwnProperty(key) ||
+                !b.hasOwnProperty(key)) {
+                return 0;
+            }
+            var varA = (typeof a[key] === 'string') ?
+                a[key].toUpperCase() : a[key];
+            var varB = (typeof b[key] === 'string') ?
+                b[key].toUpperCase() : b[key];
+            var comparison = 0;
+            if (varA > varB) {
+                comparison = 1;
+            }
+            else if (varA < varB) {
+                comparison = -1;
+            }
+            return ((order == 'desc') ?
+                (comparison * -1) : comparison);
+        };
+    };
+    return Listing;
+}(__WEBPACK_IMPORTED_MODULE_1__constant_messages__["a" /* constMessages */]));
+
+//# sourceMappingURL=listing.js.map
+
+/***/ }),
+
 /***/ "../../../../moment/locale recursive ^\\.\\/.*$":
 /***/ (function(module, exports, __webpack_require__) {
 
