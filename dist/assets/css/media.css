@@ -73,4 +73,6 @@ footer .nav.navbar-nav li {
 }
 .banner-wrap {height: auto; padding-bottom: 40px}
 .quest-wrap { margin: 25px 0 }
+.your-course .quest-wrap:before, .your-course .quest-wrap:after{display: none}
+.your-course .quest-wrap li {margin-bottom: 15px}
  }
