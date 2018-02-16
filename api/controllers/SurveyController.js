@@ -10,7 +10,7 @@ let constantObj = require('./../../config/constants.js');
 
 module.exports.surveyType = function(req, res) {
 	userQuestionaire.findOne({
-        title: req.params.title
+        surveyType: req.params.title
     }).exec(function(err, data) {
         if (err) {
             res.status(400).send({
