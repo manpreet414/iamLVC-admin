@@ -11,6 +11,9 @@ const userQuestionSchema = new Schema({
     	type: String,
     	index: true  
   	},
+    interventions: {
+        type:Array
+    },
     elementType: String,
     gender: String,
     variable: String,
