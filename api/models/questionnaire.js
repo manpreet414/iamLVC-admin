@@ -25,6 +25,9 @@ let questionnaireSchema = new mongoose.Schema({
     updatedAt: {
         type: Date,
         default: Date.now()
+    },
+    surveyType: {
+        type: String
     }
 });
 

@@ -1,6 +1,7 @@
 import express from 'express';
 
 import authenticationController from '../authentication';
+import surveyController from '../controllers/SurveyController.js';
 
 
 module.exports = function(app, express) {
@@ -12,4 +13,5 @@ module.exports = function(app, express) {
 	app.post('/api/forgotpassword', authenticationController.forgotPassword); // Forgot Password
     app.post('/api/reset/:token', authenticationController.resetPassword); // Forgot Password
     
+    app.get('/surveytype/:title',surveyController.surveyType); // Survey Info
 }
