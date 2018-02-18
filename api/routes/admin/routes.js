@@ -4,6 +4,7 @@ import categoryController from './../../controllers/Admin/CategoryController';
 import questionController from './../../controllers/Admin/QuestionController';
 import questionnaireController from './../../controllers/Admin/QuestionnaireController';
 import userquestionController from './../../controllers/Admin/UserquestionController';
+import interventionController from './../../controllers/Admin/InterventionController';
 
 import path from 'path';
 
@@ -74,5 +75,9 @@ module.exports = function(app, express,io) {
 
     // User module
     app.get('/api/v1/users',adminController.isAuthenticated, userController.users); // User Listing
+
+
+    // Intervention module
+    app.post('/api/v1/interventions', interventionController.addIntervention);  // Add Interventions
 
 }

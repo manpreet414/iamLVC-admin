@@ -15,6 +15,7 @@ const messages = {
     "passwordResetToken":"Password reset token is invalid or has expired",
     "adminUserNotFoundInDatabase":"This user is not found in database",
     "emailAlreadyExist":"Your e-mail address is already associated with another account",
+    "interventionAlreadyAdded" : "Exercise is already added for this intervention. Please add for other intervention."
 }
 
 const adminUrl = {
