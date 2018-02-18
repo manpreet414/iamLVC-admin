@@ -82,7 +82,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/theme/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"top-header\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <ul>\n                    <li *ngIf=\"!user\"><a href=\"#/login\"><span><i class=\"fa fa-user\" aria-hidden=\"true\"></i></span>Login</a></li>\n                    <li *ngIf=\"user\"><a href=\"javascript:void(0)\"><span><i class=\"fa fa-user\" aria-hidden=\"true\"></i></span>My Account</a></li>\n                    <li *ngIf=\"!user\" >|</li>\n                    <li *ngIf=\"!user\"><a href=\"#/register\"><span><i class=\"fa fa-lock\" aria-hidden=\"true\"></i></span>Register</a></li>\n                </ul>\n                <div *ngIf=\"!user\" class=\"pull-right\">\n                    <a href=\"#/register\" class=\"dark-blue\">Start Now!</a>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<app-sub-header [user]=\"user\" (Logout)=\"logout()\"></app-sub-header>\n"
+module.exports = "<div class=\"top-header\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <ul>\n                    <li *ngIf=\"!user\"><a href=\"#/login\"><span><i class=\"fa fa-user\" aria-hidden=\"true\"></i></span>Login</a></li>\n                    <li *ngIf=\"user\"><a href=\"javascript:void(0)\"><span><i class=\"fa fa-user\" aria-hidden=\"true\"></i></span>My Account</a></li>\n                    <li *ngIf=\"!user\" >|</li>\n                    <li *ngIf=\"!user\"><a href=\"#/register\"><span><i class=\"fa fa-lock\" aria-hidden=\"true\"></i></span>Register</a></li>\n                </ul>\n                <div *ngIf=\"!user\" class=\"pull-right\">\n                    <a href=\"#/register\" class=\"dark-blue\">Start Now!</a>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<app-sub-header *ngIf=\"!user\" [user]=\"user\" (Logout)=\"logout()\"></app-sub-header>\n"
 
 /***/ }),
 
@@ -151,7 +151,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/theme/layout/layout.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n\t<router-outlet></router-outlet>\n<app-footer></app-footer>\n"
+module.exports = "<app-header></app-header>\n\t<div class=\"wrapper\"  *ngIf =\"user\">\n\t\t<!-- <div *ngIf =\"user\" [ngClass]=\"{'sidebarClass':!user}\"> -->\n\t\t<nav id=\"sidebar\">\n\t\t\t<ul class=\"list-unstyled components\">\n\t\t\t\t<li class=\"active\">\n\t\t\t\t\t<a href=\"\">\n\t\t\t\t\t\t<span><i class=\"fas fa-edit\"></i></span>\n\t\t\t\t\t\t<span class=\"hide-text\">Brief Survey</span>\n\t\t\t\t\t</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href=\"#\">\n\t\t\t\t\t\t<span><i class=\"fas fa-list-ul\"></i></span>\n\t\t\t\t\t\t<span class=\"hide-text\">Course Instructions</span>\n\t\t\t\t\t</a>\n\t\t\t\t\t<a href=\"#pageSubmenu\" data-toggle=\"collapse\" aria-expanded=\"false\">\n\t\t\t\t\t\t<span><i class=\"fas fa-bookmark\"></i></span>\n\t\t\t\t\t\t<span class=\"hide-text\">My Course</span>\n\t\t\t\t\t</a>\n\t\t\t\t\t<ul class=\"collapse list-unstyled\" id=\"pageSubmenu\">\n\t\t\t\t\t\t<li><a href=\"#\">Exercise 1</a></li>\n\t\t\t\t\t\t<li><a href=\"#\">Exercise 2</a></li>\n\t\t\t\t\t\t<li><a href=\"#\">Exercise 3</a></li>\n\t\t\t\t\t</ul>\n\t\t\t\t</li>\n\t\t\t\t\n\t\t\t\t<li>\n\t\t\t\t\t<a href=\"#\">\n\t\t\t\t\t\t<span><i class=\"fas fa-chart-line\"></i></span>\n\t\t\t\t\t\t<span class=\"hide-text\">My Progress</span>\n\t\t\t\t\t</a>\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t</nav>\n\t\t\t\t<!-- Page Content Holder -->\n\t\t<div id=\"content\" >\n\t\t\t<nav class=\"navbar navbar-default\">\n\t\t\t\t<div class=\"container-fluid\">\n\n\t\t\t\t\t<div class=\"navbar-header\">\n\t\t\t\t\t\t<button type=\"button\" id=\"sidebarCollapse\" class=\"btn btn-info navbar-btn\" (click)=\"btnToggle()\">\n\t\t\t\t\t\t\t<i class=\"glyphicon glyphicon-align-left\"></i>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<a href=#><img alt=\"\" src=\"assets/images/logo.png\"></a>\n\t\t\t\t\t\t<ul class=\"nav navbar-nav navbar-right\">\n\t\t\t\t\t\t\t<li><a href=\"#/profile/edit\"><i class=\"fas fa-edit\"></i> Edit Profile</a></li>\n\t\t\t\t\t\t\t<li><a (click)=\"logout()\"><i class=\"fas fa-sign-out-alt\"></i> Logout</a></li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</nav>\n\t\t\t<div  class=\"after-login-content\">\n\t\t\t\t<router-outlet></router-outlet>\n\t\t\t\t\n\t\t\t</div>\n\t\n\t\t</div>\n\t</div>\n\t<div  *ngIf =\"!user\">\n\t\t<router-outlet></router-outlet>\n\t</div>\n\t<!-- </div> -->\n\t\n<app-footer *ngIf =\"!user\"></app-footer>\n"
 
 /***/ }),
 
@@ -173,8 +173,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var LayoutComponent = /** @class */ (function () {
     function LayoutComponent() {
+        this.wrapperHeight();
     }
     LayoutComponent.prototype.ngOnInit = function () {
+        this.user = localStorage.getItem('name');
+        console.log("this.user", this.user);
+        this.btnToggle();
+    };
+    LayoutComponent.prototype.btnToggle = function () {
+        jQuery(document).ready(function () {
+            jQuery('#sidebarCollapse').on('click', function () {
+                jQuery('#sidebar').toggleClass('active');
+                jQuery('#content').toggleClass('active');
+            });
+        });
+    };
+    LayoutComponent.prototype.wrapperHeight = function () {
+        jQuery(document).ready(function () {
+            this.heightDiv = jQuery("#content").height();
+            console.log("height", this.heightDiv);
+            jQuery(".wrapper").css("height", this.heightDiv + "px");
+            jQuery("#sidebar").css("height", this.heightDiv + "px");
+        });
     };
     LayoutComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
