@@ -14,4 +14,5 @@ module.exports = function(app, express) {
     app.post('/api/reset/:token', authenticationController.resetPassword); // Forgot Password
     
     app.get('/api/surveytype/:type',surveyController.surveyType); // Survey Info
+  	app.post('/api/addsurvey',surveyController.surveyAdd); // Survey Info
 }

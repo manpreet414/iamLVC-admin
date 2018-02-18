@@ -117,7 +117,7 @@ module.exports.allQuestion = function(req, res) {
 		myskip = parseInt(req.body.page - 1) * mylimit;
 	}
 
-	userQuestion.find( { is_deleted : false} ).populate("categoryId").skip(myskip).limit(mylimit).then(function(rec) {
+	userQuestion.find( { is_deleted : false} ).populate("categoryId").then(function(rec) {
             res.status(200).send({
             	error: false,
                 msg: constantObj.messages.successRetreivingData,
