@@ -14,6 +14,11 @@ var map = {
 		"common",
 		"dashboard.module"
 	],
+	"app/intervension/intervension.module": [
+		"../../../../../src/app/intervension/intervension.module.ts",
+		"common",
+		"intervension.module"
+	],
 	"app/questionaire/questionaire.module": [
 		"../../../../../src/app/questionaire/questionaire.module.ts",
 		"common",

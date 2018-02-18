@@ -136,7 +136,7 @@ var routes = [
     {
         path: '',
         component: __WEBPACK_IMPORTED_MODULE_2__category_component__["a" /* CategoryComponent */],
-        data: { title: 'Questions' },
+        data: { title: 'Category' },
         children: [
             { path: '', component: __WEBPACK_IMPORTED_MODULE_4__listing_listing_component__["a" /* ListingComponent */], data: { title: '' } },
             { path: 'new', component: __WEBPACK_IMPORTED_MODULE_3__form_form_component__["a" /* FormComponent */], data: { title: 'New' } },

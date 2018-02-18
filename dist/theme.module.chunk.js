@@ -356,6 +356,12 @@ var SidebarComponent = (function () {
                     { name: 'Add Survey', link: '/questionaire/new' }
                 ]
             },
+            { name: 'Intervension Management', icon: 'fa-quora',
+                childs: [
+                    { name: 'Intervension', link: '/intervension' },
+                    { name: 'Add Intervension', link: '/intervension/new' }
+                ]
+            },
             { name: 'Settings', icon: 'fa-gear',
                 childs: [
                     // { name: 'Email', link: '', icon: 'fa-envelope' },
@@ -555,6 +561,10 @@ var routes = [
             {
                 path: 'questionaire',
                 loadChildren: 'app/questionaire/questionaire.module#QuestionaireModule'
+            },
+            {
+                path: 'intervension',
+                loadChildren: 'app/intervension/intervension.module#IntervensionModule'
             }
         ]
     }
