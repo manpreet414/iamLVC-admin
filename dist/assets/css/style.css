@@ -368,7 +368,9 @@ ul ul a {
     padding-left: 30px !important;
     background: #343434;
 }
-
+ul ul.dropdown-menu a {
+    background: #fff
+}
 
 
 /* ---------------------------------------------------

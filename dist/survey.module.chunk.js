@@ -21,7 +21,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/survey/main-survey/main-survey.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"box-wrap survey-wrap\">\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <h3>Survey Course -1</h3>\n            </div>\n        </div>\n        <div class=\"row\">\n            <!-- <div class=\"col-sm-8 col-sm-offset-2\">\n                <h5>You are just a step behind for a life chnaging experience. Help us to know you better</h5>\n            </div> -->\n        </div>\n        <div class=\"row\">\n            <div class=\"col-sm-8 col-sm-offset-2\">\n                <div class=\"quest-wrap\" [class.hidden]=\"selectedIndex!==i\" *ngFor='let obj of questions;let i=index;'>\n                    <h5>Question {{i+1}}:-  {{obj.question}} </h5>\n                    <div class=\"row\" *ngIf=\"obj.elementType == 'Radio'\">\n                        <div class=\"col-sm-4 col-xs-6\" *ngFor=\"let answer of obj.answerKeys;let j=index\">\n                            <div>\n                                <input type=\"radio\" id=\"{{answer.answerValue}}\" value=\"{{answer.answerValue}}\" [(ngModel)]=\"obj.answer\" name=\"radioBtn\" />\n                                <label for=\"{{answer.answerValue}}\"><span></span>{{answer.displayText}}</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"row\" *ngIf=\"obj.elementType == 'Text'\">\n                        <div class=\"col-sm-12\">\n                            <div class=\"form-group\">\n                                <textarea id='answer' name=\"answer\" [(ngModel)]=\"obj.answer\" class=\"form-control\" rows=\"5\" id=\"comment\"></textarea>\n                            </div>\n                        </div>\n                    </div> \n                <div class=\"text-center\">\n                    <input type=\"submit\" name=\"question-submit\" id=\"question-submit\" tabindex=\"4\" class=\"form-control btn blue-border\" value=\"{{selectedIndex == (questions.length-1) ? 'Submit' : 'Next'}}\" (click)=\"next()\">\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
+module.exports = "<div class=\"box-wrap survey-wrap your-course\">\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n              <h3> Creating Your Course - Survey {{surveyCount}}</h3>\n            </div>\n            <div class=\"col-sm-8 col-sm-offset-2\">\n                <div class=\"quest-wrap\">\n                  <ul class=\"radio-custom\" *ngFor='let obj of questions;let i=index;'>\n                    <li class=\"row\" >\n                        <div class=\"col-sm-9\">\n                          <h5><span>{{i+1}}. </span>{{obj.question}}</h5>\n                        </div>\n                        <div class=\"col-sm-3\">\n                          <div class=\"row\">\n                            <div class=\"col-xs-6\" *ngFor=\"let answer of obj.answerKeys;let j=index\">\n                              <input type=\"radio\" id=\"radioID{{i}}{{j}}\" value=\"{{answer.answerValue}}\" [(ngModel)]=\"obj.answer\" name=\"radioBtn{{i}}\">\n                              <label for=\"radioID{{i}}{{j}}\"><span></span>{{answer.displayText}}</label>\n                            </div>\n                          </div>\n                        </div>\n                    </li>    \n                                          \n                   </ul>\n                </div>\n                <div class=\"text-center\">\n                    <input type=\"submit\" name=\"question-submit\" id=\"question-submit\" tabindex=\"4\" class=\"form-control btn blue-border\" value=\"Submit\" (click)=\"submitAnswer()\">\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -54,16 +54,17 @@ var MainSurveyComponent = /** @class */ (function () {
         this._sharedService = _sharedService;
         this.selectedSurvey = [];
         this.questions = [];
-        this.selectedIndex = 0;
         this.myarray = ['A', 'B', 'C'];
+        this.surveyCount = 1;
     }
     MainSurveyComponent.prototype.ngOnInit = function () {
         this.getSurvey();
     };
     MainSurveyComponent.prototype.getSurvey = function () {
         var _this = this;
-        this.busy = this._sharedService.getSurvey('mainSurvey').then(function (res) {
-            _this.selectedSurvey = res.data.categoryAndQuestions;
+        var key = 'surveyCourse' + this.surveyCount;
+        this.busy = this._sharedService.getSurvey(key).then(function (res) {
+            _this.selectedSurvey = res.data && res.data.categoryAndQuestions ? res.data.categoryAndQuestions : [];
             _this.selectedSurvey.forEach(function (object) {
                 object.itemsDropped.forEach(function (obj) {
                     _this.questions.push(obj);
@@ -79,22 +80,25 @@ var MainSurveyComponent = /** @class */ (function () {
         });
         console.log("this.questions", this.questions);
     };
-    MainSurveyComponent.prototype.next = function () {
-        if (this.selectedIndex < (this.questions.length - 1))
-            this.selectedIndex++;
-        else
-            this.submitAnswer();
-    };
     MainSurveyComponent.prototype.submitAnswer = function () {
         var _this = this;
+        var key = 'surveyCourse' + this.surveyCount;
         var body = {
             useId: localStorage.getItem("userID"),
-            surveyType: "mainSurvey",
+            surveyType: key,
             userSurvey: this.questions
         };
         this.busy = this._sharedService.submitSurvey(body).then(function (res) {
-            _this.toastr.success('Survey Successfully Submited ', '.', { timeOut: 3000, });
-            _this._router.navigate(['/pages/your-course']);
+            _this.toastr.success('Survey Successfully Submited ', ' ', { timeOut: 3000, });
+            if (_this.surveyCount == 1) {
+                _this.surveyCount = 2;
+                _this.selectedSurvey = [];
+                _this.questions = [];
+                _this.getSurvey();
+            }
+            else {
+                _this._router.navigate(['/pages/courseinstructions']);
+            }
         }, function (error) {
             console.log("error in submit answer", error);
             if (error.headers._headers.get('content-type')[0] == "application/json; charset=utf-8") {
@@ -264,8 +268,8 @@ var SurveyComponent = /** @class */ (function () {
         };
         this.busy = this._sharedService.submitSurvey(body).then(function (res) {
             console.log("submited response", res);
-            _this.toastr.success('Survey Successfully Submited ', '.', { timeOut: 3000, });
-            _this._router.navigate(['/pages/courseinstructions']);
+            _this.toastr.success('Survey Successfully Submited ', ' ', { timeOut: 3000, });
+            _this._router.navigate(['/survay/main-survey']);
         }, function (error) {
             console.log("error in submit answer", error);
             if (error.headers._headers.get('content-type')[0] == "application/json; charset=utf-8") {
