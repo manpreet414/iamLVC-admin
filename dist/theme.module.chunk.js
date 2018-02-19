@@ -161,6 +161,7 @@ module.exports = "<app-header></app-header>\n\t<div class=\"wrapper\"  *ngIf =\"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LayoutComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -171,14 +172,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var LayoutComponent = /** @class */ (function () {
-    function LayoutComponent() {
+    function LayoutComponent(_router) {
+        this._router = _router;
         this.wrapperHeight();
     }
     LayoutComponent.prototype.ngOnInit = function () {
         this.user = localStorage.getItem('name');
         console.log("this.user", this.user);
         this.btnToggle();
+    };
+    LayoutComponent.prototype.logout = function () {
+        localStorage.removeItem('userID');
+        localStorage.removeItem('token');
+        localStorage.removeItem('email');
+        localStorage.removeItem('name');
+        this.user = null;
+        this._router.navigate(['/']);
     };
     LayoutComponent.prototype.btnToggle = function () {
         jQuery(document).ready(function () {
@@ -191,7 +202,6 @@ var LayoutComponent = /** @class */ (function () {
     LayoutComponent.prototype.wrapperHeight = function () {
         jQuery(document).ready(function () {
             this.heightDiv = jQuery("#content").height();
-            console.log("height", this.heightDiv);
             jQuery(".wrapper").css("height", this.heightDiv + "px");
             jQuery("#sidebar").css("height", this.heightDiv + "px");
         });
@@ -202,7 +212,7 @@ var LayoutComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/theme/layout/layout.component.html"),
             styles: [__webpack_require__("../../../../../src/app/theme/layout/layout.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
     ], LayoutComponent);
     return LayoutComponent;
 }());
