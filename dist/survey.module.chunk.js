@@ -269,7 +269,7 @@ var SurveyComponent = /** @class */ (function () {
         this.busy = this._sharedService.submitSurvey(body).then(function (res) {
             console.log("submited response", res);
             _this.toastr.success('Survey Successfully Submited ', ' ', { timeOut: 3000, });
-            _this._router.navigate(['/survay/main-survey']);
+            _this._router.navigate(['/survey/main-survey']);
         }, function (error) {
             console.log("error in submit answer", error);
             if (error.headers._headers.get('content-type')[0] == "application/json; charset=utf-8") {
