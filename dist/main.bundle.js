@@ -124,21 +124,23 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_validation___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng2_validation__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ngx_toastr__ = __webpack_require__("../../../../ngx-toastr/toastr.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/esm5/animations.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_routing__ = __webpack_require__("../../../../../src/app/app.routing.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__auth_login_login_component__ = __webpack_require__("../../../../../src/app/auth/login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__auth_forget_password_forget_password_component__ = __webpack_require__("../../../../../src/app/auth/forget-password/forget-password.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__auth_reset_password_reset_password_component__ = __webpack_require__("../../../../../src/app/auth/reset-password/reset-password.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__auth_register_register_component__ = __webpack_require__("../../../../../src/app/auth/register/register.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__shared_shared_module__ = __webpack_require__("../../../../../src/app/shared/shared.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_angular2_busy__ = __webpack_require__("../../../../angular2-busy/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_angular2_busy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_angular2_busy__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__auth_activate_route_guard__ = __webpack_require__("../../../../../src/app/auth/activate-route-guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_routing__ = __webpack_require__("../../../../../src/app/app.routing.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__auth_login_login_component__ = __webpack_require__("../../../../../src/app/auth/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__auth_forget_password_forget_password_component__ = __webpack_require__("../../../../../src/app/auth/forget-password/forget-password.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__auth_reset_password_reset_password_component__ = __webpack_require__("../../../../../src/app/auth/reset-password/reset-password.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__auth_register_register_component__ = __webpack_require__("../../../../../src/app/auth/register/register.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__shared_shared_module__ = __webpack_require__("../../../../../src/app/shared/shared.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_angular2_busy__ = __webpack_require__("../../../../angular2-busy/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_angular2_busy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_angular2_busy__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -159,28 +161,28 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__auth_login_login_component__["a" /* LoginComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__auth_forget_password_forget_password_component__["a" /* ForgetPasswordComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__auth_reset_password_reset_password_component__["a" /* ResetPasswordComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__auth_register_register_component__["a" /* RegisterComponent */]
+                __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__auth_login_login_component__["a" /* LoginComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__auth_forget_password_forget_password_component__["a" /* ForgetPasswordComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__auth_reset_password_reset_password_component__["a" /* ResetPasswordComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__auth_register_register_component__["a" /* RegisterComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_7__app_routing__["a" /* AppRoutingModule */],
+                __WEBPACK_IMPORTED_MODULE_8__app_routing__["a" /* AppRoutingModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormsModule"],
-                __WEBPACK_IMPORTED_MODULE_12__shared_shared_module__["a" /* SharedModule */],
+                __WEBPACK_IMPORTED_MODULE_13__shared_shared_module__["a" /* SharedModule */],
                 __WEBPACK_IMPORTED_MODULE_3_ng2_validation__["CustomFormsModule"],
                 __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-                __WEBPACK_IMPORTED_MODULE_13_angular2_busy__["BusyModule"],
+                __WEBPACK_IMPORTED_MODULE_14_angular2_busy__["BusyModule"],
                 __WEBPACK_IMPORTED_MODULE_4_ngx_toastr__["a" /* ToastrModule */].forRoot({
                     timeOut: 3000,
                     positionClass: 'toast-top-right',
                     preventDuplicates: true,
                 }),
             ],
-            providers: [],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_6__auth_activate_route_guard__["a" /* ActiveRouteGuard */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
@@ -199,10 +201,11 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__auth_login_login_component__ = __webpack_require__("../../../../../src/app/auth/login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__auth_register_register_component__ = __webpack_require__("../../../../../src/app/auth/register/register.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__auth_forget_password_forget_password_component__ = __webpack_require__("../../../../../src/app/auth/forget-password/forget-password.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__auth_reset_password_reset_password_component__ = __webpack_require__("../../../../../src/app/auth/reset-password/reset-password.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__auth_activate_route_guard__ = __webpack_require__("../../../../../src/app/auth/activate-route-guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__auth_login_login_component__ = __webpack_require__("../../../../../src/app/auth/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__auth_register_register_component__ = __webpack_require__("../../../../../src/app/auth/register/register.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__auth_forget_password_forget_password_component__ = __webpack_require__("../../../../../src/app/auth/forget-password/forget-password.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__auth_reset_password_reset_password_component__ = __webpack_require__("../../../../../src/app/auth/reset-password/reset-password.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -217,14 +220,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var appRoutes = [
     {
         path: 'login',
-        component: __WEBPACK_IMPORTED_MODULE_3__auth_login_login_component__["a" /* LoginComponent */],
+        component: __WEBPACK_IMPORTED_MODULE_4__auth_login_login_component__["a" /* LoginComponent */],
+        canActivate: [__WEBPACK_IMPORTED_MODULE_3__auth_activate_route_guard__["a" /* ActiveRouteGuard */]]
     },
     {
         path: 'register',
-        component: __WEBPACK_IMPORTED_MODULE_4__auth_register_register_component__["a" /* RegisterComponent */],
+        component: __WEBPACK_IMPORTED_MODULE_5__auth_register_register_component__["a" /* RegisterComponent */],
+        canActivate: [__WEBPACK_IMPORTED_MODULE_3__auth_activate_route_guard__["a" /* ActiveRouteGuard */]]
     },
     {
         path: '',
@@ -232,11 +238,11 @@ var appRoutes = [
     },
     {
         path: 'forgot-password',
-        component: __WEBPACK_IMPORTED_MODULE_5__auth_forget_password_forget_password_component__["a" /* ForgetPasswordComponent */],
+        component: __WEBPACK_IMPORTED_MODULE_6__auth_forget_password_forget_password_component__["a" /* ForgetPasswordComponent */],
     },
     {
         path: 'forgot-password/reset/:token',
-        component: __WEBPACK_IMPORTED_MODULE_6__auth_reset_password_reset_password_component__["a" /* ResetPasswordComponent */],
+        component: __WEBPACK_IMPORTED_MODULE_7__auth_reset_password_reset_password_component__["a" /* ResetPasswordComponent */],
     }
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -244,11 +250,53 @@ var AppRoutingModule = /** @class */ (function () {
     }
     AppRoutingModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forRoot(appRoutes, { useHash: true }), __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* HttpModule */]],
-            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* HttpModule */]]
+            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* RouterModule */].forRoot(appRoutes, { useHash: true }), __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* HttpModule */]],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* RouterModule */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* HttpModule */]]
         })
     ], AppRoutingModule);
     return AppRoutingModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/auth/activate-route-guard.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ActiveRouteGuard; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ActiveRouteGuard = /** @class */ (function () {
+    function ActiveRouteGuard(router) {
+        this.router = router;
+    }
+    ActiveRouteGuard.prototype.canActivate = function () {
+        var token = localStorage.getItem('token');
+        if (!token) {
+            return true;
+        }
+        else {
+            this.router.navigate(['/survey/breif']);
+        }
+    };
+    ActiveRouteGuard = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]])
+    ], ActiveRouteGuard);
+    return ActiveRouteGuard;
 }());
 
 
@@ -347,7 +395,7 @@ var ForgetPasswordComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/auth/forget-password/forget-password.component.scss")],
             providers: [__WEBPACK_IMPORTED_MODULE_3__login_login_service__["a" /* LoginService */]]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */],
             __WEBPACK_IMPORTED_MODULE_3__login_login_service__["a" /* LoginService */],
             __WEBPACK_IMPORTED_MODULE_2_ngx_toastr__["b" /* ToastrService */]])
     ], ForgetPasswordComponent);
@@ -464,7 +512,7 @@ var LoginComponent = /** @class */ (function () {
             providers: [__WEBPACK_IMPORTED_MODULE_2__login_service__["a" /* LoginService */]]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__login_service__["a" /* LoginService */],
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */],
             __WEBPACK_IMPORTED_MODULE_3_ngx_toastr__["b" /* ToastrService */]])
     ], LoginComponent);
     return LoginComponent;
@@ -548,7 +596,7 @@ var LoginService = /** @class */ (function () {
     };
     LoginService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
     ], LoginService);
     return LoginService;
 }());
@@ -685,7 +733,7 @@ var RegisterComponent = /** @class */ (function () {
             providers: [__WEBPACK_IMPORTED_MODULE_2__login_login_service__["a" /* LoginService */]]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__login_login_service__["a" /* LoginService */],
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */],
             __WEBPACK_IMPORTED_MODULE_4_ngx_toastr__["b" /* ToastrService */]])
     ], RegisterComponent);
     return RegisterComponent;
@@ -800,7 +848,7 @@ var ResetPasswordComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/auth/reset-password/reset-password.component.css")],
             providers: [__WEBPACK_IMPORTED_MODULE_3__login_login_service__["a" /* LoginService */]]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */],
             __WEBPACK_IMPORTED_MODULE_2_ngx_toastr__["b" /* ToastrService */],
             __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
             __WEBPACK_IMPORTED_MODULE_3__login_login_service__["a" /* LoginService */]])
@@ -867,7 +915,7 @@ var SharedService = /** @class */ (function () {
     };
     SharedService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
     ], SharedService);
     return SharedService;
 }());
@@ -938,7 +986,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/shared/sub-header/sub-header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header>\n    <nav id=\"navbar-primary\" class=\"navbar\" role=\"navigation\">\n        <div class=\"container-fluid\">\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <!-- Brand and toggle get grouped for better mobile display -->\n                    <div class=\"navbar-header\">\n                     <span class=\"pull-left mobile-logo\"><a href=\"#\"><img id=\"logo-navbar-middle\" src=\"assets/images/logo.png\" width=\"200\" alt=\"I am LYC\"></a></span>\n                    <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#navbar-primary-collapse\">\n                        <span class=\"sr-only\">Toggle navigation</span>\n                        <span class=\"icon-bar\"></span>\n                        <span class=\"icon-bar\"></span>\n                        <span class=\"icon-bar\"></span>\n                    </button>\n                    </div>\n                    <div class=\"collapse navbar-collapse\" id=\"navbar-primary-collapse\">\n                        <ul *ngIf=\"!user\" class=\"nav navbar-nav\">\n                            <li [ngClass]=\"{'active':selectedLink == 'home'}\"><a (click)=\"layout('home','')\" href=\"#\">Home</a></li>\n                            <!--<li [ngClass]=\"{'active':selectedLink == 'onlinecource'}\"><a (click)=\"layout('onlinecource','pages/courseinstructions')\" href=\"javascript:void(0);\">Online Course</a></li>-->\n                            <li>\n                                <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">Online Course\n                                <span class=\"caret\"></span></a>\n                                <ul class=\"dropdown-menu\">\n                                <li><a href=\"#/pages/online-course\" routerLink='/pages/online-course'>Individual Coaching</a></li>\n\n                                <li><a href=\"#/pages/group-coaching\" routerLink='/pages/group-coaching'>Group Coaching</a></li>\n                                <li><a href=\"#/pages/corporation\">Online Course for Corporations/Nonprofits </a></li>\n                                </ul>\n                            </li>\n                            <li [ngClass]=\"{'active':selectedLink == 'freelvcexercises'}\" ><a (click)=\"layout('freelvcexercises','')\" href=\"javascript:void(0);\">Free LVC Exercises</a></li>\n                            <li [ngClass]=\"{'active':selectedLink == 'home'}\"  class=\"brand-logo\"><a (click)=\"layout('home','')\" href=\"#\"><img id=\"logo-navbar-middle\" src=\"assets/images/logo.png\" width=\"200\" alt=\"I am LYC\"></a></li>\n                            <li [ngClass]=\"{'active':selectedLink == 'videos'}\" ><a (click)=\"layout('videos','pages/videos')\" href=\"javascript:void(0);\">I  Am LVC Videos</a></li>\n                            <li [ngClass]=\"{'active':selectedLink == 'story'}\" ><a (click)=\"layout('story','pages/story')\" href=\"javascript:void(0);\">I Am LVC Story</a></li>\n                        </ul>\n\n                        <ul *ngIf=\"user\" class=\"nav navbar-nav\">\n                            <li [ngClass]=\"{'active':selectedLink == 'courseinstructions'}\"><a (click)=\"layout('courseinstructions','pages/courseinstructions')\" href=\"javascript:void(0);\">Course Instructions</a></li>\n                            <li [ngClass]=\"{'active':selectedLink == 'your-courses'}\"><a (click)=\"layout('your-courses','pages/your-course')\" href=\"javascript:void(0);\">Your Course</a></li>\n                            <li [ngClass]=\"{'active':selectedLink == 'home'}\"  class=\"brand-logo\"><a (click)=\"layout('home','')\" href=\"#\"><img id=\"logo-navbar-middle\" src=\"assets/images/logo.png\" width=\"200\" alt=\"I am LYC\"></a></li>\n                            <!--<li [ngClass]=\"{'active':selectedLink == 'editprofile'}\" ><a (click)=\"layout('editprofile','profile/edit')\" href=\"javascript:void(0);\">Edit Profile</a></li>-->\n                            <li ><a href=\"javascript:void(0);\">My Progress</a></li>\n                            <li><a (click)=\"logout()\" href=\"javascript:void(0);\">Logout</a></li>\n                        </ul>\n\n                    </div><!-- /.navbar-collapse -->\n                </div>\n            </div>\n        </div><!-- /.container-fluid -->\n    </nav>\n</header>"
+module.exports = "<header>\n    <nav id=\"navbar-primary\" class=\"navbar\" role=\"navigation\">\n        <div class=\"container-fluid\">\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <!-- Brand and toggle get grouped for better mobile display -->\n                    <div class=\"navbar-header\">\n                     <span class=\"pull-left mobile-logo\"><a href=\"#\"><img id=\"logo-navbar-middle\" src=\"assets/images/logo.png\" width=\"200\" alt=\"I am LYC\"></a></span>\n                    <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#navbar-primary-collapse\">\n                        <span class=\"sr-only\">Toggle navigation</span>\n                        <span class=\"icon-bar\"></span>\n                        <span class=\"icon-bar\"></span>\n                        <span class=\"icon-bar\"></span>\n                    </button>\n                    </div>\n                    <div class=\"collapse navbar-collapse\" id=\"navbar-primary-collapse\">\n                        <ul *ngIf=\"!user\" class=\"nav navbar-nav\">\n                            <li [ngClass]=\"{'active':selectedLink == 'home'}\"><a (click)=\"layout('home','')\" href=\"#\">Home</a></li>\n                            <!--<li [ngClass]=\"{'active':selectedLink == 'onlinecource'}\"><a (click)=\"layout('onlinecource','pages/courseinstructions')\" href=\"javascript:void(0);\">Online Course</a></li>-->\n                            <li>\n                                <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">Online Course\n                                <span class=\"caret\"></span></a>\n                                <ul class=\"dropdown-menu\">\n                                <li><a href=\"#/pages/online-course\" routerLink='/pages/online-course'>Individual Coaching</a></li>\n\n                                <li><a href=\"#/pages/group-coaching\" routerLink='/pages/group-coaching'>Group Coaching</a></li>\n                                <li><a href=\"#/pages/corporation\">Online Course for Corporations/Nonprofits </a></li>\n                                </ul>\n                            </li>\n                            <li [ngClass]=\"{'active':selectedLink == 'freelvcexercises'}\" ><a (click)=\"layout('freelvcexercises','pages/free-exercise')\" href=\"javascript:void(0);\">Free LVC Exercises</a></li>\n                            <li [ngClass]=\"{'active':selectedLink == 'home'}\"  class=\"brand-logo\"><a (click)=\"layout('home','')\" href=\"#\"><img id=\"logo-navbar-middle\" src=\"assets/images/logo.png\" width=\"200\" alt=\"I am LYC\"></a></li>\n                            <li [ngClass]=\"{'active':selectedLink == 'videos'}\" ><a (click)=\"layout('videos','pages/videos')\" href=\"javascript:void(0);\">I  Am LVC Videos</a></li>\n                            <li [ngClass]=\"{'active':selectedLink == 'story'}\" ><a (click)=\"layout('story','pages/story')\" href=\"javascript:void(0);\">I Am LVC Story</a></li>\n                        </ul>\n\n                        <ul *ngIf=\"user\" class=\"nav navbar-nav\">\n                            <li [ngClass]=\"{'active':selectedLink == 'courseinstructions'}\"><a (click)=\"layout('courseinstructions','pages/courseinstructions')\" href=\"javascript:void(0);\">Course Instructions</a></li>\n                            <li [ngClass]=\"{'active':selectedLink == 'your-courses'}\"><a (click)=\"layout('your-courses','pages/your-course')\" href=\"javascript:void(0);\">Your Course</a></li>\n                            <li [ngClass]=\"{'active':selectedLink == 'home'}\"  class=\"brand-logo\"><a (click)=\"layout('home','')\" href=\"#\"><img id=\"logo-navbar-middle\" src=\"assets/images/logo.png\" width=\"200\" alt=\"I am LYC\"></a></li>\n                            <!--<li [ngClass]=\"{'active':selectedLink == 'editprofile'}\" ><a (click)=\"layout('editprofile','profile/edit')\" href=\"javascript:void(0);\">Edit Profile</a></li>-->\n                            <li ><a href=\"javascript:void(0);\">My Progress</a></li>\n                            <li><a (click)=\"logout()\" href=\"javascript:void(0);\">Logout</a></li>\n                        </ul>\n\n                    </div><!-- /.navbar-collapse -->\n                </div>\n            </div>\n        </div><!-- /.container-fluid -->\n    </nav>\n</header>"
 
 /***/ }),
 
@@ -989,7 +1037,7 @@ var SubHeaderComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/shared/sub-header/sub-header.component.html"),
             styles: [__webpack_require__("../../../../../src/app/shared/sub-header/sub-header.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]])
     ], SubHeaderComponent);
     return SubHeaderComponent;
 }());

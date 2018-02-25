@@ -183,6 +183,71 @@ var CourseinstructionsComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/pages/free-exercise/free-exercise.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/free-exercise/free-exercise.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"banner-wrap\">\n  <div class=\"container\">\n      <div class=\"row\">\n          <div class=\"col-sm-6\">\n              <div class=\"banner-text-wrap\">\n                  <h1 >\n                    <span class=\"skyblue-text\">YOU ARE</span><br>\n                    LOVEABLE<br>\n                    VALUABLE<br>\n                    CAPABLE<br>\n                  </h1>\n              </div>\n          </div>\n      </div>\n  </div>\n</div>\n<div class=\"box-wrap online-course\">\n  <div class=\"container\">\n    <div class=\"row\">\n        <div class=\"col-sm-12\">\n            <h3>Free LVC Exercises</h3>\n        </div>\n    </div>\n  </div>\n</div>\n<div *ngIf=\"freeExercise\" class=\"free-exercise\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-sm-12 text-center\">\n        <h3 class=\"wow slideInTop\" data-wow-duration=\"1s\">Do you want to truly love yourself?</h3>\n        <h3 class=\"wow slideInLeft\" data-wow-delay=\"2s\">Do you want to believe you are valuable?</h3>\n        <h3 class=\"wow slideInRight\" data-wow-delay=\"3s\">Do you want to know you are capable?</h3>\n        <h3 class=\"wow bounceInUp\" data-wow-delay=\"4s\">YOU ARE AND YOU ARE IN THE RIGHT PLACE!</h3>\n      </div>\n    </div>\n  \n    <div class=\"row\">\n      <div class=\"col-sm-12 text-center\" >\n        <p>I Am LVC empowers people to know they are lovable, valuable, and capable and to treat themselves and others as lovable, valuable, and capable.</p>\n      </div>    \n      <div class=\"col-sm-12\">\n        <p>Included in this packet are 5 exercises to begin you on your path to truly knowing you are lovable, valuable, and capable.</p>\n      </div>\n      <div class=\"col-sm-12\">\n          <a href=\"\" class=\"form-control btn blue-border\" type=\"button\" data-toggle=\"modal\" data-target=\"#myModal\">Download Now!</a>\n      </div>\n      \n    </div>\n  </div>\n  <div class=\"modal fade\" id=\"myModal\">\n      <div class=\"modal-dialog\">\n        <div class=\"modal-content\">\n    \n          <!-- Modal Header -->\n          <div class=\"modal-header\">\n            <h4 class=\"modal-title\">Enter Email</h4>\n            <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n          </div>\n    \n          <!-- Modal body -->\n          <div class=\"modal-body\">\n            <input type=\"email\" class=\"form-control\" placeholder=\"Enter Your Email\"/>\n          </div>\n    \n          <!-- Modal footer -->\n          <div class=\"modal-footer\">\n            <button type=\"button\" class=\" btn blue-border\" data-dismiss=\"modal\" (click)=\"emailSubmit()\">Submit</button>\n          </div>\n    \n        </div>\n      </div>\n    </div>\n</div>\n<div *ngIf=\"!freeExercise\" class=\"free-exercise\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-sm-12 text-center\">\n        <h3>Your free LVC exercises have been emailed to you!</h3>\n      </div>\n    </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/free-exercise/free-exercise.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FreeExerciseComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var FreeExerciseComponent = /** @class */ (function () {
+    function FreeExerciseComponent() {
+        this.freeExercise = true;
+    }
+    FreeExerciseComponent.prototype.ngOnInit = function () {
+    };
+    FreeExerciseComponent.prototype.emailSubmit = function () {
+        this.freeExercise = false;
+    };
+    FreeExerciseComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-free-exercise',
+            template: __webpack_require__("../../../../../src/app/pages/free-exercise/free-exercise.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/pages/free-exercise/free-exercise.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], FreeExerciseComponent);
+    return FreeExerciseComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/pages/group-coaching/group-coaching.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -312,15 +377,17 @@ var OnlineCourseComponent = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PagesRoutingModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contactus_contactus_component__ = __webpack_require__("../../../../../src/app/pages/contactus/contactus.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__story_story_component__ = __webpack_require__("../../../../../src/app/pages/story/story.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__videos_videos_component__ = __webpack_require__("../../../../../src/app/pages/videos/videos.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__courseinstructions_courseinstructions_component__ = __webpack_require__("../../../../../src/app/pages/courseinstructions/courseinstructions.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__talk_about_it_talk_about_it_component__ = __webpack_require__("../../../../../src/app/pages/talk-about-it/talk-about-it.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__group_coaching_group_coaching_component__ = __webpack_require__("../../../../../src/app/pages/group-coaching/group-coaching.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__online_course_online_course_component__ = __webpack_require__("../../../../../src/app/pages/online-course/online-course.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__corporation_corporation_component__ = __webpack_require__("../../../../../src/app/pages/corporation/corporation.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__your_courses_your_courses_component__ = __webpack_require__("../../../../../src/app/pages/your-courses/your-courses.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auth_activate_route_guard__ = __webpack_require__("../../../../../src/app/auth/activate-route-guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__contactus_contactus_component__ = __webpack_require__("../../../../../src/app/pages/contactus/contactus.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__story_story_component__ = __webpack_require__("../../../../../src/app/pages/story/story.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__videos_videos_component__ = __webpack_require__("../../../../../src/app/pages/videos/videos.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__courseinstructions_courseinstructions_component__ = __webpack_require__("../../../../../src/app/pages/courseinstructions/courseinstructions.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__talk_about_it_talk_about_it_component__ = __webpack_require__("../../../../../src/app/pages/talk-about-it/talk-about-it.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__group_coaching_group_coaching_component__ = __webpack_require__("../../../../../src/app/pages/group-coaching/group-coaching.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__online_course_online_course_component__ = __webpack_require__("../../../../../src/app/pages/online-course/online-course.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__corporation_corporation_component__ = __webpack_require__("../../../../../src/app/pages/corporation/corporation.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__your_courses_your_courses_component__ = __webpack_require__("../../../../../src/app/pages/your-courses/your-courses.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__free_exercise_free_exercise_component__ = __webpack_require__("../../../../../src/app/pages/free-exercise/free-exercise.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -338,42 +405,52 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
 var routes = [
     {
         path: 'contactus',
-        component: __WEBPACK_IMPORTED_MODULE_2__contactus_contactus_component__["a" /* ContactusComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_3__contactus_contactus_component__["a" /* ContactusComponent */],
+        canActivate: [__WEBPACK_IMPORTED_MODULE_2__auth_activate_route_guard__["a" /* ActiveRouteGuard */]]
     },
     {
         path: 'story',
-        component: __WEBPACK_IMPORTED_MODULE_3__story_story_component__["a" /* StoryComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_4__story_story_component__["a" /* StoryComponent */],
+        canActivate: [__WEBPACK_IMPORTED_MODULE_2__auth_activate_route_guard__["a" /* ActiveRouteGuard */]]
     },
     {
         path: 'videos',
-        component: __WEBPACK_IMPORTED_MODULE_4__videos_videos_component__["a" /* VideosComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_5__videos_videos_component__["a" /* VideosComponent */],
+        canActivate: [__WEBPACK_IMPORTED_MODULE_2__auth_activate_route_guard__["a" /* ActiveRouteGuard */]]
     },
     {
         path: 'courseinstructions',
-        component: __WEBPACK_IMPORTED_MODULE_5__courseinstructions_courseinstructions_component__["a" /* CourseinstructionsComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_6__courseinstructions_courseinstructions_component__["a" /* CourseinstructionsComponent */]
     },
     {
         path: 'talk-about-it',
-        component: __WEBPACK_IMPORTED_MODULE_6__talk_about_it_talk_about_it_component__["a" /* TalkAboutItComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_7__talk_about_it_talk_about_it_component__["a" /* TalkAboutItComponent */],
+        canActivate: [__WEBPACK_IMPORTED_MODULE_2__auth_activate_route_guard__["a" /* ActiveRouteGuard */]]
     },
     {
         path: 'group-coaching',
-        component: __WEBPACK_IMPORTED_MODULE_7__group_coaching_group_coaching_component__["a" /* GroupCoachingComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_8__group_coaching_group_coaching_component__["a" /* GroupCoachingComponent */]
     },
     {
         path: 'online-course',
-        component: __WEBPACK_IMPORTED_MODULE_8__online_course_online_course_component__["a" /* OnlineCourseComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_9__online_course_online_course_component__["a" /* OnlineCourseComponent */]
     },
     {
         path: 'corporation',
-        component: __WEBPACK_IMPORTED_MODULE_9__corporation_corporation_component__["a" /* CorporationComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_10__corporation_corporation_component__["a" /* CorporationComponent */]
     },
     {
         path: 'your-course',
-        component: __WEBPACK_IMPORTED_MODULE_10__your_courses_your_courses_component__["a" /* YourCoursesComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_11__your_courses_your_courses_component__["a" /* YourCoursesComponent */]
+    },
+    {
+        path: 'free-exercise',
+        component: __WEBPACK_IMPORTED_MODULE_12__free_exercise_free_exercise_component__["a" /* FreeExerciseComponent */]
     }
 ];
 var PagesRoutingModule = /** @class */ (function () {
@@ -381,8 +458,8 @@ var PagesRoutingModule = /** @class */ (function () {
     }
     PagesRoutingModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forChild(routes)],
-            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */]]
+            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* RouterModule */].forChild(routes)],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* RouterModule */]]
         })
     ], PagesRoutingModule);
     return PagesRoutingModule;
@@ -411,12 +488,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__online_course_online_course_component__ = __webpack_require__("../../../../../src/app/pages/online-course/online-course.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__corporation_corporation_component__ = __webpack_require__("../../../../../src/app/pages/corporation/corporation.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__your_courses_your_courses_component__ = __webpack_require__("../../../../../src/app/pages/your-courses/your-courses.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__free_exercise_free_exercise_component__ = __webpack_require__("../../../../../src/app/pages/free-exercise/free-exercise.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -449,7 +528,8 @@ var PagesModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_9__group_coaching_group_coaching_component__["a" /* GroupCoachingComponent */],
                 __WEBPACK_IMPORTED_MODULE_10__online_course_online_course_component__["a" /* OnlineCourseComponent */],
                 __WEBPACK_IMPORTED_MODULE_11__corporation_corporation_component__["a" /* CorporationComponent */],
-                __WEBPACK_IMPORTED_MODULE_12__your_courses_your_courses_component__["a" /* YourCoursesComponent */]
+                __WEBPACK_IMPORTED_MODULE_12__your_courses_your_courses_component__["a" /* YourCoursesComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__free_exercise_free_exercise_component__["a" /* FreeExerciseComponent */]
             ]
         })
     ], PagesModule);

@@ -21,7 +21,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/theme/footer/footer.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<footer>\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <figure>\n                    <img src=\"assets/images/whitelogo.png\" alt=\"\" />\n                </figure>\n                <div class=\"footer-text\">\n                    <nav class=\"navbar\" role=\"navigation\">\n                        <ul class=\"nav navbar-nav\">\n                            <li class=\"active\"><a href=\"#\">Home</a></li>\n                            <li><a href=\"#/pages/courseinstructions\">Online Course</a></li>\n                            <li><a href=\"javascript:void(0)\">Free LVC Exercises</a></li>\n                            <li><a href=\"#/pages/videos\">I  Am LVC Videos</a></li>\n                            <li><a href=\"#/pages/story\">I Am LVC Story</a></li>\n                            <li><a href=\"#/pages/contactus\">Contact Us</a></li>\n                        </ul>  \n                    </nav>\n                </div>\n            </div>\n        </div>\n    </div>\n</footer>"
+module.exports = "<footer>\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <figure>\n                    <img src=\"assets/images/whitelogo.png\" alt=\"\" />\n                </figure>\n                <div class=\"footer-text\">\n                    <nav class=\"navbar\" role=\"navigation\">\n                        <ul class=\"nav navbar-nav\">\n                            <li class=\"active\"><a href=\"#\">Home</a></li>\n                            <li><a href=\"#/pages/courseinstructions\">Online Course</a></li>\n                            <li><a href=\"#/pages/free-exercise\">Free LVC Exercises</a></li>\n                            <li><a href=\"#/pages/videos\">I  Am LVC Videos</a></li>\n                            <li><a href=\"#/pages/story\">I Am LVC Story</a></li>\n                            <li><a href=\"#/pages/contactus\">Contact Us</a></li>\n                        </ul>  \n                    </nav>\n                </div>\n            </div>\n        </div>\n    </div>\n</footer>"
 
 /***/ }),
 
@@ -92,6 +92,7 @@ module.exports = "<div class=\"top-header\">\n    <div class=\"container\">\n   
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HeaderComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -102,8 +103,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var HeaderComponent = /** @class */ (function () {
-    function HeaderComponent() {
+    function HeaderComponent(_router) {
+        var _this = this;
+        this._router = _router;
+        this._router.events.subscribe(function (path) {
+            if (path instanceof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* NavigationEnd */] && path.url == '/')
+                _this.checkUser();
+        });
     }
     HeaderComponent.prototype.ngOnInit = function () {
         this.user = localStorage.getItem('name');
@@ -115,13 +123,16 @@ var HeaderComponent = /** @class */ (function () {
         localStorage.removeItem('name');
         this.user = null;
     };
+    HeaderComponent.prototype.checkUser = function () {
+        this.user = localStorage.getItem('name');
+    };
     HeaderComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-header',
             template: __webpack_require__("../../../../../src/app/theme/header/header.component.html"),
             styles: [__webpack_require__("../../../../../src/app/theme/header/header.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]])
     ], HeaderComponent);
     return HeaderComponent;
 }());
@@ -212,7 +223,7 @@ var LayoutComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/theme/layout/layout.component.html"),
             styles: [__webpack_require__("../../../../../src/app/theme/layout/layout.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]])
     ], LayoutComponent);
     return LayoutComponent;
 }());
@@ -267,8 +278,8 @@ var ThemeRoutingModule = /** @class */ (function () {
     }
     ThemeRoutingModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forChild(routes)],
-            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */]]
+            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* RouterModule */].forChild(routes)],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* RouterModule */]]
         })
     ], ThemeRoutingModule);
     return ThemeRoutingModule;
