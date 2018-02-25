@@ -169,3 +169,42 @@ module.exports.getCategoryQuestions = function(req, res) {
         }
 	});
 }
+
+module.exports.getInterventionquestions = function(req, res) {
+    userQuestion.find({interventions : {$exists:true}, $where:'this.interventions.length>0',elementType:"Radio"}, function (err, data) {
+        console.log("issue is",err,data)
+        if (err) {
+            res.status(400).send({
+                error: true,
+                msg: constantObj.messages.errorRetreivingData,
+                "err": err
+            });
+        } else {
+
+            let data = JSON.parse(JSON.stringify(data))
+            let updateData = {
+                $set: data
+            }
+
+            userQuestion.update({_id: req.body._id}, updateData, function(err, data) {
+                    if (err) {
+                        res.status(400).send({
+                            msg: constantObj.messages.userStatusUpdateFailure,
+                            "err": err
+                        });
+                    } else {
+                        res.status(200).send({
+                            msg: constantObj.messages.userStatusUpdateSuccess,
+                            data: data
+                        });
+                    }
+                });
+
+
+            res.status(200).send({
+                error: false,
+                data: data
+            });
+        }
+    });
+}
