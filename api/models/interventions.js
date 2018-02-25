@@ -6,6 +6,10 @@ const interventionSchema = new mongoose.Schema({
     	type: String,
     	index: true
   	},
+
+    time: {
+      type: String
+    },
   	
     interventionsId: Number,
   	
