@@ -913,6 +913,10 @@ var SharedService = /** @class */ (function () {
         return this.http.post(this.baseUrl + 'addsurvey', body)
             .toPromise().then(function (response) { return response.json(); });
     };
+    SharedService.prototype.getExercises = function (id) {
+        return this.http.get(this.baseUrl + 'myexercises/' + id)
+            .toPromise().then(function (response) { return response.json(); });
+    };
     SharedService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])

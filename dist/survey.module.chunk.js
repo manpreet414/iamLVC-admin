@@ -21,7 +21,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/survey/breif/breif.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"box-wrap survey-wrap\">\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <h3>I Am LVC Beginning Survey</h3>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-sm-8 col-sm-offset-2\">\n                <div class=\"progress\">\n                    <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"60\" aria-valuemin=\"0\" aria-valuemax=\"100\" [style.width]=\"((selectedIndex*100)/questions.length)+'%'\">\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-sm-8 col-sm-offset-2\">\n                <div class=\"quest-wrap\" *ngFor='let obj of questions| slice:skip:limit;let i=index;'>\n                    <h5>Question {{i+1}}:-  {{obj.question}} </h5>\n                    <div class=\"row\" *ngIf=\"obj.elementType == 'Radio'\">\n                        <div class=\"col-sm-4 col-xs-6\" *ngFor=\"let answer of obj.answerKeys;let j=index\">\n                            <div>\n                                <input type=\"radio\" id=\"{{answer.answerValue}}\" value=\"{{answer.answerValue}}\" [(ngModel)]=\"obj.answer\" name=\"radioBtn\" />\n                                <label for=\"{{answer.answerValue}}\"><span></span>{{answer.displayText}}</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"row\" *ngIf=\"obj.elementType == 'Text'\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"form-group\">\n                                    <textarea id='answer' name=\"answer\" [(ngModel)]=\"obj.answer\" class=\"form-control\" rows=\"5\" id=\"comment\"></textarea>\n                                </div>\n                            </div>\n                        </div>\n            </div>\n            <div class=\"text-center\">\n                <input type=\"submit\" name=\"question-submit\" id=\"question-submit\" tabindex=\"4\" class=\"form-control btn blue-border\" value=\"{{limit >= questions.length ? 'Submit':'Next'}}\" (click)=\"submitAnswer()\">\n            </div>\n        </div>\n    </div>\n</div>"
+module.exports = "<div class=\"box-wrap survey-wrap\">\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <h3>I Am LVC Beginning Survey</h3>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-sm-8 col-sm-offset-2\">\n                <div class=\"progress\">\n                    <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"60\" aria-valuemin=\"0\" aria-valuemax=\"100\" [style.width]=\"((selectedIndex*100)/questions.length)+'%'\">\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-sm-8 col-sm-offset-2\">\n                <div class=\"quest-wrap\" *ngFor='let obj of questions| slice:skip:limit;let i=index;'>\n                    <h5>Question {{i+1}}:-  {{obj.question}} </h5>\n                    <div class=\"row\" *ngIf=\"obj.elementType == 'Radio'\">\n                        <div class=\"col-sm-4 col-xs-6\" *ngFor=\"let answer of obj.answerKeys;let j=index\">\n                            <div>\n                                <input type=\"radio\" id=\"radioID{{i}}{{j}}\" value=\"{{answer.answerValue}}\" [(ngModel)]=\"obj.answer\" name=\"radioBtn{{i}}\">\n                              <label for=\"radioID{{i}}{{j}}\"><span></span>{{answer.displayText}}</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"row\" *ngIf=\"obj.elementType == 'Text'\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"form-group\">\n                                    <textarea id='answer' name=\"answer\" [(ngModel)]=\"obj.answer\" class=\"form-control\" rows=\"5\" id=\"comment\"></textarea>\n                                </div>\n                            </div>\n                        </div>\n            </div>\n            <div class=\"text-center\">\n                <input type=\"submit\" name=\"question-submit\" id=\"question-submit\" tabindex=\"4\" class=\"form-control btn blue-border\" value=\"{{limit >= questions.length ? 'Submit':'Next'}}\" (click)=\"submitAnswer()\">\n            </div>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -133,6 +133,95 @@ var BreifComponent = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_2__shared_services_shared_service__["a" /* SharedService */]])
     ], BreifComponent);
     return BreifComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/survey/exercise-list/exercise-list.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/survey/exercise-list/exercise-list.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div *ngFor=\"let obj of exerciseList\" style=\"padding: 10px;\">\n\t<div>\n\t\t<label>Exercise : </label>\n\t\t{{obj?.interventionsId?.name}}\n\t</div>\n\t<div>\n\t\t<label>Time : </label>\n\t\t{{obj?.interventionsId?.time}}\n\t</div>\n\t<br>\n</div>\n<div *ngIf=\"exerciseList.length == 0\">\n\tNo Exercise Available.\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/survey/exercise-list/exercise-list.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExerciseListComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_services_shared_service__ = __webpack_require__("../../../../../src/app/shared/services/shared.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ngx_toastr__ = __webpack_require__("../../../../ngx-toastr/toastr.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ExerciseListComponent = /** @class */ (function () {
+    function ExerciseListComponent(_router, toastr, _sharedService) {
+        this._router = _router;
+        this.toastr = toastr;
+        this._sharedService = _sharedService;
+        this.exerciseList = [];
+    }
+    ExerciseListComponent.prototype.ngOnInit = function () {
+        this.getExercises();
+    };
+    ExerciseListComponent.prototype.getExercises = function () {
+        var _this = this;
+        var userID = localStorage.getItem('userID');
+        this.busy = this._sharedService.getExercises(userID).then(function (res) {
+            if (!res.error)
+                _this.exerciseList = res.data;
+        }, function (error) {
+            if (error.headers._headers.get('content-type')[0] == "application/json; charset=utf-8") {
+                _this.toastr.error(error.json().msg);
+            }
+            else {
+                _this.toastr.error('There are some problem please try later.');
+            }
+        });
+    };
+    ExerciseListComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-exercise-list',
+            template: __webpack_require__("../../../../../src/app/survey/exercise-list/exercise-list.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/survey/exercise-list/exercise-list.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_3_ngx_toastr__["b" /* ToastrService */],
+            __WEBPACK_IMPORTED_MODULE_2__shared_services_shared_service__["a" /* SharedService */]])
+    ], ExerciseListComponent);
+    return ExerciseListComponent;
 }());
 
 
@@ -331,12 +420,14 @@ var SurveyOneComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__survey_one_survey_one_component__ = __webpack_require__("../../../../../src/app/survey/survey-one/survey-one.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__survey_two_survey_two_component__ = __webpack_require__("../../../../../src/app/survey/survey-two/survey-two.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__exercise_exercise_component__ = __webpack_require__("../../../../../src/app/survey/exercise/exercise.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__exercise_list_exercise_list_component__ = __webpack_require__("../../../../../src/app/survey/exercise-list/exercise-list.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -355,6 +446,10 @@ var routes = [
     {
         path: 'survey-two',
         component: __WEBPACK_IMPORTED_MODULE_4__survey_two_survey_two_component__["a" /* SurveyTwoComponent */]
+    },
+    {
+        path: 'exercise-list',
+        component: __WEBPACK_IMPORTED_MODULE_6__exercise_list_exercise_list_component__["a" /* ExerciseListComponent */]
     },
     {
         path: 'exercise',
@@ -514,12 +609,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__survey_one_survey_one_component__ = __webpack_require__("../../../../../src/app/survey/survey-one/survey-one.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__survey_two_survey_two_component__ = __webpack_require__("../../../../../src/app/survey/survey-two/survey-two.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__exercise_exercise_component__ = __webpack_require__("../../../../../src/app/survey/exercise/exercise.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__exercise_list_exercise_list_component__ = __webpack_require__("../../../../../src/app/survey/exercise-list/exercise-list.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -546,7 +643,8 @@ var SurveyModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_6__breif_breif_component__["a" /* BreifComponent */],
                 __WEBPACK_IMPORTED_MODULE_7__survey_one_survey_one_component__["a" /* SurveyOneComponent */],
                 __WEBPACK_IMPORTED_MODULE_8__survey_two_survey_two_component__["a" /* SurveyTwoComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__exercise_exercise_component__["a" /* ExerciseComponent */]
+                __WEBPACK_IMPORTED_MODULE_9__exercise_exercise_component__["a" /* ExerciseComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__exercise_list_exercise_list_component__["a" /* ExerciseListComponent */]
             ]
         })
     ], SurveyModule);
