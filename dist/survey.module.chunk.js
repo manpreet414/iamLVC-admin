@@ -21,7 +21,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/survey/breif/breif.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"box-wrap survey-wrap\">\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <h3>I Am LVC Beginning Survey</h3>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-sm-8 col-sm-offset-2\">\n                <div class=\"progress\">\n                    <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"60\" aria-valuemin=\"0\" aria-valuemax=\"100\" [style.width]=\"((selectedIndex*100)/questions.length)+'%'\">\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-sm-8 col-sm-offset-2\">\n                <div class=\"quest-wrap\" *ngFor='let obj of questions| slice:skip:limit;let i=index;'>\n                    <h5>Question {{i+1}}:-  {{obj.question}} </h5>\n                    <div class=\"row\" *ngIf=\"obj.elementType == 'Radio'\">\n                        <div class=\"col-sm-4 col-xs-6\" *ngFor=\"let answer of obj.answerKeys;let j=index\">\n                            <div>\n                                <input type=\"radio\" id=\"{{answer.answerValue}}\" value=\"{{answer.answerValue}}\" [(ngModel)]=\"obj.answer\" name=\"radioBtn\" />\n                                <label for=\"{{answer.answerValue}}\"><span></span>{{answer.displayText}}</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"row\" *ngIf=\"obj.elementType == 'Text'\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"form-group\">\n                                    <textarea id='answer' name=\"answer\" [(ngModel)]=\"obj.answer\" class=\"form-control\" rows=\"5\" id=\"comment\"></textarea>\n                                </div>\n                            </div>\n                        </div>\n                <div class=\"text-center\">\n                    <input type=\"submit\" name=\"question-submit\" id=\"question-submit\" tabindex=\"4\" class=\"form-control btn blue-border\" value=\"{{limit >= questions.length ? 'Submit':'Next'}}\" (click)=\"submitAnswer()\">\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
+module.exports = "<div class=\"box-wrap survey-wrap\">\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <h3>I Am LVC Beginning Survey</h3>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-sm-8 col-sm-offset-2\">\n                <div class=\"progress\">\n                    <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"60\" aria-valuemin=\"0\" aria-valuemax=\"100\" [style.width]=\"((selectedIndex*100)/questions.length)+'%'\">\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-sm-8 col-sm-offset-2\">\n                <div class=\"quest-wrap\" *ngFor='let obj of questions| slice:skip:limit;let i=index;'>\n                    <h5>Question {{i+1}}:-  {{obj.question}} </h5>\n                    <div class=\"row\" *ngIf=\"obj.elementType == 'Radio'\">\n                        <div class=\"col-sm-4 col-xs-6\" *ngFor=\"let answer of obj.answerKeys;let j=index\">\n                            <div>\n                                <input type=\"radio\" id=\"{{answer.answerValue}}\" value=\"{{answer.answerValue}}\" [(ngModel)]=\"obj.answer\" name=\"radioBtn\" />\n                                <label for=\"{{answer.answerValue}}\"><span></span>{{answer.displayText}}</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"row\" *ngIf=\"obj.elementType == 'Text'\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"form-group\">\n                                    <textarea id='answer' name=\"answer\" [(ngModel)]=\"obj.answer\" class=\"form-control\" rows=\"5\" id=\"comment\"></textarea>\n                                </div>\n                            </div>\n                        </div>\n            </div>\n            <div class=\"text-center\">\n                <input type=\"submit\" name=\"question-submit\" id=\"question-submit\" tabindex=\"4\" class=\"form-control btn blue-border\" value=\"{{limit >= questions.length ? 'Submit':'Next'}}\" (click)=\"submitAnswer()\">\n            </div>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -106,7 +106,7 @@ var BreifComponent = /** @class */ (function () {
             return;
         }
         var body = {
-            useId: localStorage.getItem("userID"),
+            userId: localStorage.getItem("userID"),
             surveyType: "breifSurvey",
             userSurvey: this.questions
         };
@@ -287,7 +287,7 @@ var SurveyOneComponent = /** @class */ (function () {
             return;
         }
         var body = {
-            useId: localStorage.getItem("userID"),
+            userId: localStorage.getItem("userID"),
             surveyType: 'surveyCourse1',
             userSurvey: this.questions
         };
@@ -464,7 +464,7 @@ var SurveyTwoComponent = /** @class */ (function () {
             return;
         }
         var body = {
-            useId: localStorage.getItem("userID"),
+            userId: localStorage.getItem("userID"),
             surveyType: 'surveyCourse2',
             userSurvey: this.questions
         };
