@@ -20,6 +20,18 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: Date.now()
     },
+    breifSurvey: {
+        type:Boolean,
+        default:false
+    },
+    surveyCourse1: {
+        type:Boolean,
+        default:false
+    },
+    surveyCourse2: {
+        type:Boolean,
+        default:false
+    },
     paymentmethods : { 
         card_type : String,
         cardbrand : String,
