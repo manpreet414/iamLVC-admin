@@ -116,19 +116,17 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_materialize__ = __webpack_require__("../../../../angular2-materialize/dist/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_imageupload__ = __webpack_require__("../../../../ng2-imageupload/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng2_imageupload___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng2_imageupload__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ngx_ckeditor__ = __webpack_require__("../../../../ngx-ckeditor/lib/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ngx_ckeditor___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_ngx_ckeditor__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_routing__ = __webpack_require__("../../../../../src/app/app.routing.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__shared_app_shared_module__ = __webpack_require__("../../../../../src/app/shared/app-shared.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_auth_guard_service__ = __webpack_require__("../../../../../src/app/services/auth-guard.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__auth_login_login_component__ = __webpack_require__("../../../../../src/app/auth/login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__auth_forget_password_forget_password_component__ = __webpack_require__("../../../../../src/app/auth/forget-password/forget-password.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__auth_reset_password_reset_password_component__ = __webpack_require__("../../../../../src/app/auth/reset-password/reset-password.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_ngx_toastr__ = __webpack_require__("../../../../ngx-toastr/toastr.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_ngx_bootstrap_dropdown__ = __webpack_require__("../../../../ngx-bootstrap/dropdown/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_ngx_intl_tel_input__ = __webpack_require__("../../../../ngx-intl-tel-input/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_routing__ = __webpack_require__("../../../../../src/app/app.routing.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_app_shared_module__ = __webpack_require__("../../../../../src/app/shared/app-shared.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_auth_guard_service__ = __webpack_require__("../../../../../src/app/services/auth-guard.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__auth_login_login_component__ = __webpack_require__("../../../../../src/app/auth/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__auth_forget_password_forget_password_component__ = __webpack_require__("../../../../../src/app/auth/forget-password/forget-password.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__auth_reset_password_reset_password_component__ = __webpack_require__("../../../../../src/app/auth/reset-password/reset-password.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_ngx_toastr__ = __webpack_require__("../../../../ngx-toastr/toastr.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_ngx_bootstrap_dropdown__ = __webpack_require__("../../../../ngx-bootstrap/dropdown/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_ngx_intl_tel_input__ = __webpack_require__("../../../../ngx-intl-tel-input/index.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -139,7 +137,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
+// import { CKEditorModule } from 'ngx-ckeditor';
 
 
 
@@ -159,28 +157,28 @@ var AppModule = (function () {
 AppModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__auth_login_login_component__["a" /* LoginComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__auth_forget_password_forget_password_component__["a" /* ForgetPasswordComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__auth_reset_password_reset_password_component__["a" /* ResetPasswordComponent */]
+            __WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__auth_login_login_component__["a" /* LoginComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__auth_forget_password_forget_password_component__["a" /* ForgetPasswordComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__auth_reset_password_reset_password_component__["a" /* ResetPasswordComponent */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_5__app_routing__["a" /* AppRoutingModule */],
+            __WEBPACK_IMPORTED_MODULE_4__app_routing__["a" /* AppRoutingModule */],
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
             __WEBPACK_IMPORTED_MODULE_2_angular2_materialize__["a" /* MaterializeModule */],
             __WEBPACK_IMPORTED_MODULE_3_ng2_imageupload__["ImageUploadModule"],
-            __WEBPACK_IMPORTED_MODULE_4_ngx_ckeditor__["CKEditorModule"],
-            __WEBPACK_IMPORTED_MODULE_13_ngx_toastr__["a" /* ToastrModule */].forRoot({
+            // CKEditorModule,
+            __WEBPACK_IMPORTED_MODULE_12_ngx_toastr__["a" /* ToastrModule */].forRoot({
                 timeOut: 3000,
                 positionClass: 'toast-top-right',
                 preventDuplicates: true,
             }),
-            __WEBPACK_IMPORTED_MODULE_15_ngx_intl_tel_input__["a" /* NgxIntlTelInputModule */],
-            __WEBPACK_IMPORTED_MODULE_14_ngx_bootstrap_dropdown__["a" /* BsDropdownModule */].forRoot(),
-            __WEBPACK_IMPORTED_MODULE_6__shared_app_shared_module__["a" /* AppSharedModule */],
+            __WEBPACK_IMPORTED_MODULE_14_ngx_intl_tel_input__["a" /* NgxIntlTelInputModule */],
+            __WEBPACK_IMPORTED_MODULE_13_ngx_bootstrap_dropdown__["a" /* BsDropdownModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_5__shared_app_shared_module__["a" /* AppSharedModule */],
         ],
-        providers: [__WEBPACK_IMPORTED_MODULE_8__services_auth_guard_service__["a" /* AuthGuard */], __WEBPACK_IMPORTED_MODULE_7__services_auth_service__["a" /* AuthService */]],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* AppComponent */]]
+        providers: [__WEBPACK_IMPORTED_MODULE_7__services_auth_guard_service__["a" /* AuthGuard */], __WEBPACK_IMPORTED_MODULE_6__services_auth_service__["a" /* AuthService */]],
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
