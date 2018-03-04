@@ -187,12 +187,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var LayoutComponent = /** @class */ (function () {
     function LayoutComponent(_router) {
         this._router = _router;
-        this.wrapperHeight();
     }
     LayoutComponent.prototype.ngOnInit = function () {
         this.user = localStorage.getItem('name');
         console.log("this.user", this.user);
         this.btnToggle();
+        this.wrapperHeight();
     };
     LayoutComponent.prototype.logout = function () {
         localStorage.removeItem('userID');
@@ -211,8 +211,8 @@ var LayoutComponent = /** @class */ (function () {
         });
     };
     LayoutComponent.prototype.wrapperHeight = function () {
-        jQuery(document).ready(function () {
-            this.heightDiv = jQuery("#content").height();
+        jQuery(document).onload(function () {
+            this.heightDiv = jQuery('.box-wrap.survey-wrap').height();
             jQuery(".wrapper").css("height", this.heightDiv + "px");
             jQuery("#sidebar").css("height", this.heightDiv + "px");
         });
