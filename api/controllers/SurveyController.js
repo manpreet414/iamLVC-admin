@@ -57,7 +57,6 @@ const saveSurvey = async(function*(req,res) {
         let survey     = new Survey(req.body);
         yield survey.save();
         if(surveyType == "surveyCourse1") {
-            console.log("1")
             let answers = ['yes','Yes','YES','YeS','YEs']
             let interArray = [1, 2, 3, 4, 5, 7, 11, 14, 15, 18, 19, 20, 22, 27, 28, 29, 32, 33, 35, 36, 37, 38, 43, 50, 54];
             userSurvey.forEach((obj)=>{
@@ -106,7 +105,8 @@ const saveSurvey = async(function*(req,res) {
                     
                     let usrIntr = {
                         interventionsId:findIntervention[i]._id,
-                        userId:req.body.userId
+                        userId:req.body.userId,
+                        interventionCode:findIntervention[i].interventionsId
                     }
                     let uIngtr = yield userInervention.create(usrIntr)
                 }
@@ -130,10 +130,37 @@ const saveSurvey = async(function*(req,res) {
 })
 
 module.exports.getExercises = function(req, res) {
-    var query = {};
-    query['userId'] = req.params.id
+    var query = {
+        is_deleted:false,
+        is_active:true,
+        userId:req.params.id
+    };
 
-    userInervention.find(query).populate('interventionsId').exec(function (err, rec) {
+    userInervention.find(query).populate('interventionsId').sort('interventionsId').exec(function (err, rec) {
+        if (err) {
+            res.status(400).send({
+                error: true,
+                msg: constantObj.messages.errorRetreivingData,
+                "err": err
+            });
+        } else {
+            res.status(200).send({
+                error: false,
+                msg: constantObj.messages.successRetreivingData,
+                data: rec
+            });
+        }
+    })
+}
+
+module.exports.getExercise = function(req, res) {
+    var query = {
+        is_deleted:false,
+        is_active:true,
+        _id:req.params.id
+    };
+
+    userInervention.findOne(query).populate('interventionsId').exec(function (err, rec) {
         if (err) {
             res.status(400).send({
                 error: true,

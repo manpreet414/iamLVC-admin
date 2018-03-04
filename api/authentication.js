@@ -192,14 +192,17 @@ exports.login = function(req, res, next) {
         }
          
         let mydata = {
-                        _id: user._id,
-                        email: user.email,
-                        fullName: user.fullName,
-                        firstName:user.firstName,
-                        is_admin: user.is_admin,
-                        password: user.password,
-                        mobile_number: user.mobile_number
-                    }
+            _id: user._id,
+            email: user.email,
+            fullName: user.fullName,
+            firstName:user.firstName,
+            is_admin: user.is_admin,
+            password: user.password,
+            mobile_number: user.mobile_number,
+            breifSurvey:user.breifSurvey,
+            surveyCourse1:user.surveyCourse1,
+            surveyCourse2:user.surveyCourse2
+        }
         //- this condition is for check that this account is active or not---- 
         user.comparePassword(req.body.password, function(err, isMatch) {
             if (!isMatch) {

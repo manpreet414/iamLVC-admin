@@ -15,6 +15,10 @@ const interventionSchema = new mongoose.Schema({
   	
     contents: [{}],
   	
+    homework : {
+      type:String
+    },
+
     is_active: {
     	type:Boolean,
     	default:true

@@ -46,8 +46,8 @@ module.exports.allIntervention = function(req, res) {
     var myskip = 0;
     var mylimit = 10;
 
-    if (req.body.limit) {
-        mylimit = parseInt(req.body.limit);
+    if (req.query.count) {
+        mylimit = parseInt(req.body.count);
     }
 
     if (req.body.page) {
