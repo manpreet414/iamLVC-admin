@@ -9,7 +9,17 @@ const surveySchema = new mongoose.Schema({
       ref: 'User'
     },
 
-    surveyType: String,
+    surveyType: {
+      type:String
+    },
+
+    exerciseID : {
+      type:String
+    },
+
+    prePost:{
+      type:String
+    },
 
     userSurvey:[{}],
     

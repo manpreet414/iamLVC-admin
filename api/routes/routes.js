@@ -15,6 +15,8 @@ module.exports = function(app, express) {
     
     app.get('/api/surveytype/:type',surveyController.surveyType); // Survey Info
   	app.post('/api/addsurvey',surveyController.surveyAdd); // Survey Info
-  	app.get('/api/myexercises/:id',surveyController.getExercises); // get Exercises
+  	
+    app.get('/api/myexercises/:id',surveyController.getExercises); // get Exercises
   	app.get('/api/exercise/:id',surveyController.getExercise); // get Exercise
+    app.put('/api/exercise/:id',surveyController.updateExercise); // update Exercise
 }

@@ -12,7 +12,7 @@ const userInterventionSchema = new Schema({
       ref: 'User'
     },
     
-    contents: [{}],
+    submittedExercise: {},
     
     is_submitted: {
       type:Boolean,

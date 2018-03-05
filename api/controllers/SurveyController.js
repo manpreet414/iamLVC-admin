@@ -176,3 +176,32 @@ module.exports.getExercise = function(req, res) {
         }
     })
 }
+
+
+
+module.exports.updateExercise = function(req, res) {
+    let query = {
+        _id:req.params.id
+    };
+    let updateData = {
+        submittedExercise:req.body.interventionsId,
+        is_submitted:true,
+        submittedAt:new Date(),
+        updatedAt:new Date()
+    }
+    userInervention.findOneAndUpdate(query,{$set:updateData}).exec(function (err, rec) {
+        if (err) {
+            res.status(400).send({
+                error: true,
+                msg: constantObj.messages.errorRetreivingData,
+                "err": err
+            });
+        } else {
+            res.status(200).send({
+                error: false,
+                msg: "Exercise Successfully submitted.",
+                data: rec
+            });
+        }
+    })
+}
