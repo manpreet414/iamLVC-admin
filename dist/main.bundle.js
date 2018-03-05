@@ -1080,14 +1080,14 @@ var environment = {
     production: false,
     config: {
         APP_NAME: "IamLVC",
-        // SOCKET_URL: "https://iamlvcapi.herokuapp.com",
-        //    BASE_URL: "https://iamlvcapi.herokuapp.com",
-        //    API_URL: "https://iamlvcapi.herokuapp.com/api/",
-        //    uploadPath: "https://iamlvcapi.herokuapp.com/uploadedFiles/"
-        SOCKET_URL: "http://localhost:4001",
-        BASE_URL: "http://localhost:4001",
-        API_URL: "http://localhost:4001/api/",
-        uploadPath: "http://localhost:4001/uploadedFiles/"
+        SOCKET_URL: "https://iamlvcapi.herokuapp.com",
+        BASE_URL: "https://iamlvcapi.herokuapp.com",
+        API_URL: "https://iamlvcapi.herokuapp.com/api/",
+        uploadPath: "https://iamlvcapi.herokuapp.com/uploadedFiles/"
+        // SOCKET_URL: "http://localhost:4001",
+        // BASE_URL: "http://localhost:4001",
+        // API_URL: "http://localhost:4001/api/",
+        // uploadPath: "http://localhost:4001/uploadedFiles/"
         /*SOCKET_URL: "http://172.24.0.176:4001",
         BASE_URL: "http://172.24.0.176:4001/",
         API_URL: "http://172.24.0.176:4001/api/v1/",
