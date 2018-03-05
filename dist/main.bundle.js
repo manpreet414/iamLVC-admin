@@ -930,6 +930,10 @@ var SharedService = /** @class */ (function () {
         return this.http.get(this.baseUrl + 'exercise/' + id)
             .toPromise().then(function (response) { return response.json(); });
     };
+    SharedService.prototype.submitExercise = function (body) {
+        return this.http.put(this.baseUrl + 'exercise/' + body._id, body)
+            .toPromise().then(function (response) { return response.json(); });
+    };
     SharedService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
@@ -1076,14 +1080,14 @@ var environment = {
     production: false,
     config: {
         APP_NAME: "IamLVC",
-        SOCKET_URL: "https://iamlvcapi.herokuapp.com",
-        BASE_URL: "https://iamlvcapi.herokuapp.com",
-        API_URL: "https://iamlvcapi.herokuapp.com/api/",
-        uploadPath: "https://iamlvcapi.herokuapp.com/uploadedFiles/"
-        // SOCKET_URL: "http://localhost:4001",
-        // BASE_URL: "http://localhost:4001",
-        // API_URL: "http://localhost:4001/api/",
-        // uploadPath: "http://localhost:4001/uploadedFiles/"
+        // SOCKET_URL: "https://iamlvcapi.herokuapp.com",
+        //    BASE_URL: "https://iamlvcapi.herokuapp.com",
+        //    API_URL: "https://iamlvcapi.herokuapp.com/api/",
+        //    uploadPath: "https://iamlvcapi.herokuapp.com/uploadedFiles/"
+        SOCKET_URL: "http://localhost:4001",
+        BASE_URL: "http://localhost:4001",
+        API_URL: "http://localhost:4001/api/",
+        uploadPath: "http://localhost:4001/uploadedFiles/"
         /*SOCKET_URL: "http://172.24.0.176:4001",
         BASE_URL: "http://172.24.0.176:4001/",
         API_URL: "http://172.24.0.176:4001/api/v1/",
