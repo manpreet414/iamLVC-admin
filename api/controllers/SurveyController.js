@@ -78,7 +78,8 @@ const saveSurvey = async(function*(req,res) {
                     
                     let usrIntr = {
                         interventionsId:findIntervention[i]._id,
-                        userId:req.body.userId
+                        userId:req.body.userId,
+                        interventionCode:findIntervention[i].interventionsId
                     }
                     let uIngtr = yield userInervention.create(usrIntr)
                 }
@@ -136,7 +137,7 @@ module.exports.getExercises = function(req, res) {
         userId:req.params.id
     };
 
-    userInervention.find(query).populate('interventionsId').sort('interventionsId').exec(function (err, rec) {
+    userInervention.find(query).populate('interventionsId').sort('interventionCode').exec(function (err, rec) {
         if (err) {
             res.status(400).send({
                 error: true,

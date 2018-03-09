@@ -7,6 +7,10 @@ const userInterventionSchema = new Schema({
       ref: 'Interventions'
     },
 
+    interventionCode: {
+      type: Number
+    },
+
     userId: {
       type: Schema.Types.ObjectId,
       ref: 'User'
