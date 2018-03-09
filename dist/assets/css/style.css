@@ -540,3 +540,4 @@ width: 100%;
 .exercise-list h4{ display: block ; font-size: 18px; margin: 15px 0; text-transform: uppercase; font-weight: 600; color: #343434 }
 .exercise-list .timing { font-size: 14px}
 .exercise-listing { font-size: 16px; margin-bottom: 10px}
+#groupcoaching h5 { margin: 0 15px; font-size: 18px}
