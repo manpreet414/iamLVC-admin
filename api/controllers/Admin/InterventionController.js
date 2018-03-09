@@ -70,3 +70,44 @@ module.exports.allIntervention = function(req, res) {
         }
     }).skip(myskip).limit(mylimit);
 }
+
+
+module.exports.Intervention = function(req, res) {
+    Interventions.findOne({ _id:req.params.id, is_active: true }, function (err, data) {
+        if (err) {
+            res.status(400).send({
+                error: true,
+                msg: constantObj.messages.errorRetreivingData,
+                "err": err
+            });
+        } else {
+            res.status(200).send({
+                error: false,
+                data: data
+            });
+        }
+    });
+}
+
+exports.updateIntervention = function(req, res) {
+
+        let data = JSON.parse(JSON.stringify(req.body))
+        let updateData = {
+            $set: data
+        }
+        Interventions.update({
+            _id: req.body._id
+        }, updateData, function(err, data) {
+            if (err) {
+                res.status(400).send({
+                    msg: constantObj.messages.userStatusUpdateFailure,
+                    "err": err
+                });
+            } else {
+                res.status(200).send({
+                    msg: constantObj.messages.userStatusUpdateSuccess,
+                    data: data
+                });
+            }
+        });
+}

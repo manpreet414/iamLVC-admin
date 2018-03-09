@@ -80,6 +80,8 @@ module.exports = function(app, express,io) {
     // Intervention module
     app.post('/api/v1/intervention', interventionController.addIntervention);  // Add Interventions
     app.get('/api/v1/intervention', interventionController.allIntervention); // intervention list with paging
+    app.get('/api/v1/intervention/:id', interventionController.Intervention); // get single intervention
+    app.put('/api/v1/intervention/:id', interventionController.updateIntervention); // update intervention 
 
     app.get('/api/v1/questionsIntervention', userquestionController.getInterventionquestions); // intervention list with paging
 
