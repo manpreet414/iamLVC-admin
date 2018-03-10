@@ -19,4 +19,7 @@ module.exports = function(app, express) {
     app.get('/api/myexercises/:id',surveyController.getExercises); // get Exercises
   	app.get('/api/exercise/:id',surveyController.getExercise); // get Exercise
     app.put('/api/exercise/:id',surveyController.updateExercise); // update Exercise
+
+    app.get('/api/myprogress/:id',surveyController.getProgress); // get Progress
+
 }

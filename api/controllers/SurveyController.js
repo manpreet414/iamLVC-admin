@@ -206,3 +206,31 @@ module.exports.updateExercise = function(req, res) {
         }
     })
 }
+
+
+
+
+module.exports.getProgress = function(req, res) {
+    var query = {
+        is_deleted:false,
+        is_active:true,
+        surveyType: "prePostSurvey",
+        userId:req.params.id
+    };
+
+    Survey.find(query).sort('createdAt').exec(function (err, rec) {
+        if (err) {
+            res.status(400).send({
+                error: true,
+                msg: constantObj.messages.errorRetreivingData,
+                "err": err
+            });
+        } else {
+            res.status(200).send({
+                error: false,
+                msg: constantObj.messages.successRetreivingData,
+                data: rec
+            });
+        }
+    })
+}
