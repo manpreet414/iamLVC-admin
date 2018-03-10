@@ -934,6 +934,13 @@ var SharedService = /** @class */ (function () {
         return this.http.put(this.baseUrl + 'exercise/' + body._id, body)
             .toPromise().then(function (response) { return response.json(); });
     };
+    SharedService.prototype.sendToTop = function () {
+        jQuery('html, body').stop(true, true).animate({ scrollTop: 0 }, 1000);
+    };
+    SharedService.prototype.getMyProgress = function (id) {
+        return this.http.get(this.baseUrl + 'myprogress/' + id)
+            .toPromise().then(function (response) { return response.json(); });
+    };
     SharedService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
