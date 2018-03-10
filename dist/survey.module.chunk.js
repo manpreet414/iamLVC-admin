@@ -355,7 +355,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/survey/myprogress/myprogress.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n        <div class=\"col-xl-6 col-lg-6 col-sm-6 col-md-6 col-md-offset-3\">\n            <div class=\"card\">\n                <span>\n\t\t\t\t\t  </span>\n                <div class=\"card-block text-center\" style=\"padding:13px !important; padding-top: 0 !important;\">\n                    <div style=\"display: block; min-height: 258px;\">\n                        <canvas baseChart width=\"1000\" height=\"700\"\n\t\t\t                [datasets]=\"lineChartData\"\n\t\t\t                [labels]=\"lineChartLabels\"\n\t\t\t                [options]=\"lineChartOptions\"\n\t\t\t                [colors]=\"lineChartColors\"\n\t\t\t                [legend]=\"lineChartLegend\"\n\t\t\t                [chartType]=\"lineChartType\"\n\t\t\t                (chartHover)=\"chartHovered($event)\"\n\t\t\t                (chartClick)=\"chartClicked($event)\"></canvas>\n                    </div>\n                    <h2 class=\"text-success\">Loveable Valuable and Capable</h2>\n                </div>\n            </div>\n        </div>\n    </div>"
+module.exports = "<div [ngBusy]=\"busy\"></div>\n<div class=\"row\">\n    <div class=\"col-xl-6 col-lg-6 col-sm-6 col-md-6 col-md-offset-3\">\n        <div class=\"card\">\n            <div class=\"card-block text-center\" style=\"padding:13px !important; padding-top: 0 !important;\" *ngIf=\"!isChartLoading\">\n                <div style=\"display: block; min-height: 258px;\">\n                    <canvas baseChart width=\"1000\" height=\"700\"\n\t\t                [datasets]=\"lineChartData\"\n\t\t                [labels]=\"lineChartLabels\"\n\t\t                [options]=\"lineChartOptions\"\n\t\t                [colors]=\"lineChartColors\"\n\t\t                [legend]=\"lineChartLegend\"\n\t\t                [chartType]=\"lineChartType\"\n\t\t                (chartHover)=\"chartHovered($event)\"\n\t\t                (chartClick)=\"chartClicked($event)\"></canvas>\n                </div>\n                <!-- <h2 class=\"text-success\">Loveable Valuable and Capable</h2> -->\n            </div>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -386,15 +386,21 @@ var MyprogressComponent = /** @class */ (function () {
         this._router = _router;
         this.toastr = toastr;
         this._sharedService = _sharedService;
+        this.isChartLoading = true;
         this.data = [];
         this.lineChartType = 'line';
         // lineChart
+        // public lineChartData:Array<any> = [
+        //     {data: [10,8,9,4,8,2,10,5,10,8,9,4,8,2,10,5], label: 'Lovable'},
+        //     {data: [6,8,9,4,8,2,10,8,7,8,9,4,8,2,2,5], label: 'Valuable'},
+        //     {data: [2,1,9,8,8,2,7,8,2,7,8,2,7,8,2,7,8,7], label: 'Capable'}
+        // ];
         this.lineChartData = [
-            { data: [10, 8, 9, 4, 8, 2, 10, 5, 10, 8, 9, 4, 8, 2, 10, 5], label: 'Loveable' },
-            { data: [6, 8, 9, 4, 8, 2, 10, 8, 7, 8, 9, 4, 8, 2, 2, 5], label: 'Valuable' },
-            { data: [2, 1, 9, 8, 8, 2, 7, 8, 2, 7, 8, 2, 7, 8, 2, 7, 8, 7], label: 'Capable' }
+            { data: [], label: 'Lovable' },
+            { data: [], label: 'Valuable' },
+            { data: [], label: 'Capable' }
         ];
-        this.lineChartLabels = ['January', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'January', 'January', 'February', 'March', 'April', 'May', 'June', 'July'];
+        this.lineChartLabels = [];
         this.lineChartOptions = {
             responsive: true
         };
@@ -406,8 +412,28 @@ var MyprogressComponent = /** @class */ (function () {
         var _this = this;
         var userID = localStorage.getItem('userID');
         this.busy = this._sharedService.getMyProgress(userID).then(function (res) {
-            if (!res.error)
+            if (!res.error) {
                 _this.data = res.data;
+                _this.data.forEach(function (obj) {
+                    var date = new Date(obj.createdAt);
+                    var month = date.getMonth() + 1;
+                    var label = date.getDate() + '/' + month + '/' + date.getFullYear();
+                    _this.lineChartLabels.push(label);
+                    obj.userSurvey.forEach(function (record) {
+                        var answer = parseInt(record.answer);
+                        if (record.categoryName == 'Lovable') {
+                            _this.lineChartData[0].data.push(answer);
+                        }
+                        else if (record.categoryName == 'Valuable') {
+                            _this.lineChartData[1].data.push(answer);
+                        }
+                        else if (record.categoryName == 'Capable') {
+                            _this.lineChartData[2].data.push(answer);
+                        }
+                    });
+                });
+                _this.isChartLoading = false;
+            }
         }, function (error) {
             if (error.headers._headers.get('content-type')[0] == "application/json; charset=utf-8") {
                 _this.toastr.error(error.json().msg);
@@ -511,6 +537,7 @@ var PrepostSurveyComponent = /** @class */ (function () {
                 _this.selectedSurvey = res.data.categoryAndQuestions;
             _this.selectedSurvey.forEach(function (object) {
                 object.itemsDropped.forEach(function (obj) {
+                    obj['categoryName'] = object.name;
                     _this.questions.push(obj);
                 });
             });
@@ -525,6 +552,12 @@ var PrepostSurveyComponent = /** @class */ (function () {
     };
     PrepostSurveyComponent.prototype.submitAnswer = function () {
         var _this = this;
+        for (var i = 0; i < this.questions.length; i++) {
+            if (!this.questions[i].answer) {
+                this.toastr.error('Please fill all answer.');
+                return;
+            }
+        }
         var body = {
             userId: localStorage.getItem("userID"),
             surveyType: "prePostSurvey",
