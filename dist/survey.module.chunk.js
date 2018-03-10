@@ -682,29 +682,30 @@ var SurveyOneComponent = /** @class */ (function () {
         });
     };
     SurveyOneComponent.prototype.submitAnswer = function () {
-        jQuery('html, body').stop(true, true).animate({ scrollTop: 0 }, 1000);
-        //  if(this.limit < this.questions.length ) {
-        //    this.skip+= 10;
-        //    this.limit+= 10;
-        //    return;
-        //  }
-        // let body = {
-        // 	userId:localStorage.getItem("userID"),
-        // 	surveyType:'surveyCourse1',
-        // 	userSurvey:this.questions
-        // }
-        //  this.isLoading = true;
-        //  this._sharedService.sendToTop();
-        // this.busy = this._sharedService.submitSurvey(body).then((res: any) => {
-        //        this.toastr.success('Survey Successfully Submited ', ' ', { timeOut: 3000, });
-        //          this._router.navigate(['/survey/survey-two']);
-        //    },(error) => {
-        //        if(error.headers._headers.get('content-type')[0] == "application/json; charset=utf-8") {
-        //          this.toastr.error(error.json().msg);
-        //        } else {
-        //          this.toastr.error('you are not able to login. Please try later.');
-        //        }
-        //    });
+        var _this = this;
+        if (this.limit < this.questions.length) {
+            this.skip += 10;
+            this.limit += 10;
+            return;
+        }
+        var body = {
+            userId: localStorage.getItem("userID"),
+            surveyType: 'surveyCourse1',
+            userSurvey: this.questions
+        };
+        this.isLoading = true;
+        this._sharedService.sendToTop();
+        this.busy = this._sharedService.submitSurvey(body).then(function (res) {
+            _this.toastr.success('Survey Successfully Submited ', ' ', { timeOut: 3000, });
+            _this._router.navigate(['/survey/survey-two']);
+        }, function (error) {
+            if (error.headers._headers.get('content-type')[0] == "application/json; charset=utf-8") {
+                _this.toastr.error(error.json().msg);
+            }
+            else {
+                _this.toastr.error('you are not able to login. Please try later.');
+            }
+        });
     };
     SurveyOneComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
