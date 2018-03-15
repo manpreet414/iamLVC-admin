@@ -1,5 +1,66 @@
 webpackJsonp(["survey.module"],{
 
+/***/ "../../../../../src/app/survey/begin-course-journey/begin-course-journey.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/survey/begin-course-journey/begin-course-journey.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"box-wrap survey-wrap story editprofile\">\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <h3>Begin Course Journey</h3>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <p>Now we know where you are, where you want to be, and why it is important to\n\t\t\t\tyou to get there! We are so excited for you to begin your journey to truly\n\t\t\t\tknowing you are lovable, valuable, and capable. To help us create a course\n\t\t\t\tspecific to your needs, the next step is for you to take two surveys – one about\n\t\t\t\tthe things that have caused you to not feel lovable, valuable, and capable and\n\t\t\t\tthe other about the areas in which you do feel lovable, valuable, and capable.\n\t\t\t\tAfter you complete those surveys, your course will be created specifically for you\n\t\t\t\tbased on your responses. Please expect these two surveys to take approximately\n\t\t\t\t20-30 minutes to complete.</p>\n            </div>\n            <div class=\"col-sm-12 text-center\">\n                <input type=\"submit\" [routerLink]=\"['/survey/survey-one']\" name=\"edit-submit\" id=\"edit-submit\" tabindex=\"4\" class=\"form-control btn blue-border\" value=\"Proceed to my survey!\">\n            </div>\n        </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/survey/begin-course-journey/begin-course-journey.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BeginCourseJourneyComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var BeginCourseJourneyComponent = /** @class */ (function () {
+    function BeginCourseJourneyComponent() {
+    }
+    BeginCourseJourneyComponent.prototype.ngOnInit = function () {
+    };
+    BeginCourseJourneyComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-begin-course-journey',
+            template: __webpack_require__("../../../../../src/app/survey/begin-course-journey/begin-course-journey.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/survey/begin-course-journey/begin-course-journey.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], BeginCourseJourneyComponent);
+    return BeginCourseJourneyComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/survey/breif/breif.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -118,7 +179,7 @@ var BreifComponent = /** @class */ (function () {
         this.isLoading = true;
         this.busy = this._sharedService.submitSurvey(body).then(function (res) {
             _this.toastr.success('Survey Successfully Submited ', ' ', { timeOut: 3000, });
-            _this._router.navigate(['/survey/survey-one']);
+            _this._router.navigate(['/survey/begin-course-journey']);
         }, function (error) {
             if (error.headers._headers.get('content-type')[0] == "application/json; charset=utf-8") {
                 _this.toastr.error(error.json().msg);
@@ -813,6 +874,7 @@ var SurveyOneComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__exercise_list_exercise_list_component__ = __webpack_require__("../../../../../src/app/survey/exercise-list/exercise-list.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__prepost_survey_prepost_survey_component__ = __webpack_require__("../../../../../src/app/survey/prepost-survey/prepost-survey.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__myprogress_myprogress_component__ = __webpack_require__("../../../../../src/app/survey/myprogress/myprogress.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__begin_course_journey_begin_course_journey_component__ = __webpack_require__("../../../../../src/app/survey/begin-course-journey/begin-course-journey.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -828,10 +890,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var routes = [
     {
         path: 'breif',
         component: __WEBPACK_IMPORTED_MODULE_2__breif_breif_component__["a" /* BreifComponent */]
+    },
+    {
+        path: 'begin-course-journey',
+        component: __WEBPACK_IMPORTED_MODULE_9__begin_course_journey_begin_course_journey_component__["a" /* BeginCourseJourneyComponent */]
     },
     {
         path: 'survey-one',
@@ -1031,12 +1098,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_angular2_busy__ = __webpack_require__("../../../../angular2-busy/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_angular2_busy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_angular2_busy__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__survey_instruction_survey_instruction_component__ = __webpack_require__("../../../../../src/app/survey/survey-instruction/survey-instruction.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__begin_course_journey_begin_course_journey_component__ = __webpack_require__("../../../../../src/app/survey/begin-course-journey/begin-course-journey.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1075,7 +1144,8 @@ var SurveyModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_11__exercise_list_exercise_list_component__["a" /* ExerciseListComponent */],
                 __WEBPACK_IMPORTED_MODULE_12__prepost_survey_prepost_survey_component__["a" /* PrepostSurveyComponent */],
                 __WEBPACK_IMPORTED_MODULE_13__myprogress_myprogress_component__["a" /* MyprogressComponent */],
-                __WEBPACK_IMPORTED_MODULE_15__survey_instruction_survey_instruction_component__["a" /* SurveyInstructionComponent */]
+                __WEBPACK_IMPORTED_MODULE_15__survey_instruction_survey_instruction_component__["a" /* SurveyInstructionComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__begin_course_journey_begin_course_journey_component__["a" /* BeginCourseJourneyComponent */]
             ]
         })
     ], SurveyModule);
