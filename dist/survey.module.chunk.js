@@ -87,6 +87,12 @@ var BreifComponent = /** @class */ (function () {
     // }
     BreifComponent.prototype.submitAnswer = function () {
         var _this = this;
+        for (var i = 0; i < this.limit; i++) {
+            if (!this.questions[i].answer) {
+                this.toastr.error('Please complete all questions.');
+                return;
+            }
+        }
         if (this.selectedIndex == 0) {
             this.skip += 6;
             this.limit += 6;
@@ -421,14 +427,16 @@ var MyprogressComponent = /** @class */ (function () {
                     _this.lineChartLabels.push(label);
                     obj.userSurvey.forEach(function (record) {
                         var answer = parseInt(record.answer);
-                        if (record.categoryName == 'Lovable') {
-                            _this.lineChartData[0].data.push(answer);
-                        }
-                        else if (record.categoryName == 'Valuable') {
-                            _this.lineChartData[1].data.push(answer);
-                        }
-                        else if (record.categoryName == 'Capable') {
-                            _this.lineChartData[2].data.push(answer);
+                        if (record.elementType == 'Radio') {
+                            if (record.categoryName == 'Lovable') {
+                                _this.lineChartData[0].data.push(answer);
+                            }
+                            else if (record.categoryName == 'Valuable') {
+                                _this.lineChartData[1].data.push(answer);
+                            }
+                            else if (record.categoryName == 'Capable') {
+                                _this.lineChartData[2].data.push(answer);
+                            }
                         }
                     });
                 });
@@ -481,7 +489,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/survey/prepost-survey/prepost-survey.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div [ngBusy]=\"busy\"></div>\n<div class=\"box-wrap survey-wrap\">\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <h3>{{prePost}} Survey</h3>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"quest-wrap brief-wrap\">\n                <div class=\"col-sm-10 col-sm-offset-1\" *ngFor='let obj of questions;let i=index;'>\n                    <h5>Question {{i+1}}:  {{obj.question}} </h5>\n                    <div class=\"row\" *ngIf=\"obj.elementType == 'Radio'\">\n                        <div class=\"col-20\" *ngFor=\"let answer of obj.answerKeys;let j=index\">\n                            <div>\n                                <input type=\"radio\" id=\"radioID{{i}}{{j}}\" value=\"{{answer.answerValue}}\" [(ngModel)]=\"obj.answer\" name=\"radioBtn{{i}}\">\n                              <label for=\"radioID{{i}}{{j}}\"><span></span>{{answer.displayText}}</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"row\" *ngIf=\"obj.elementType == 'Text'\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"form-group\">\n                                    <textarea id='answer' name=\"answer\" [(ngModel)]=\"obj.answer\" class=\"form-control\" rows=\"5\" id=\"comment\"></textarea>\n                                </div>\n                            </div>\n                        </div>\n            </div>\n            <div class=\"text-center\" *ngIf=\"questions.length > 0\">\n                <input [disabled]=\"isLoading\" type=\"submit\" name=\"question-submit\" id=\"question-submit\" tabindex=\"4\" class=\"form-control btn blue-border\" value=\"Submit\" (click)=\"submitAnswer()\">\n            </div>\n        </div>\n    </div>\n</div>"
+module.exports = "<div [ngBusy]=\"busy\"></div>\n<div class=\"box-wrap survey-wrap\">\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <h3>{{prePost}} Survey</h3>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"quest-wrap brief-wrap\">\n                <div class=\"col-sm-10 col-sm-offset-1\" *ngFor='let obj of questions;let i=index;' [hidden]=\"obj.elementType == 'Text' && prePost == 'Post'\">\n                    <h5>Question {{i+1}}:  {{obj.question}} </h5>\n                    <div class=\"row\" *ngIf=\"obj.elementType == 'Radio'\">\n                        <div class=\"col-20\" *ngFor=\"let answer of obj.answerKeys;let j=index\">\n                            <div>\n                                <input type=\"radio\" id=\"radioID{{i}}{{j}}\" value=\"{{answer.answerValue}}\" [(ngModel)]=\"obj.answer\" name=\"radioBtn{{i}}\">\n                              <label for=\"radioID{{i}}{{j}}\"><span></span>{{answer.displayText}}</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"row\" *ngIf=\"obj.elementType == 'Text'\">\n                        <div class=\"col-sm-12\">\n                            <div class=\"form-group\">\n                                <textarea id='answer' name=\"answer\" [(ngModel)]=\"obj.answer\" class=\"form-control\" rows=\"5\" id=\"comment\"></textarea>\n                            </div>\n                        </div>\n                    </div>\n            </div>\n            <div class=\"text-center\" *ngIf=\"questions.length > 0\">\n                <input [disabled]=\"isLoading\" type=\"submit\" name=\"question-submit\" id=\"question-submit\" tabindex=\"4\" class=\"form-control btn blue-border\" value=\"Submit\" (click)=\"submitAnswer()\">\n            </div>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -553,7 +561,7 @@ var PrepostSurveyComponent = /** @class */ (function () {
     PrepostSurveyComponent.prototype.submitAnswer = function () {
         var _this = this;
         for (var i = 0; i < this.questions.length; i++) {
-            if (!this.questions[i].answer) {
+            if (this.questions[i].elementType == 'Radio' && !this.questions[i].answer) {
                 this.toastr.error('Please fill all answer.');
                 return;
             }
@@ -595,6 +603,67 @@ var PrepostSurveyComponent = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_2__shared_services_shared_service__["a" /* SharedService */]])
     ], PrepostSurveyComponent);
     return PrepostSurveyComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/survey/survey-instruction/survey-instruction.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/survey/survey-instruction/survey-instruction.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div [ngBusy]=\"busy\"></div>\n<div class=\"box-wrap survey-wrap your-course\">\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            \n            <div class=\"col-sm-8 col-sm-offset-2\">\n                <div class=\"quiz-guide\">\n                    <p>Now we know where you are, where you want to be, and why it is important to you to get there! We are so excited for you to begin your journey to truly knowing you are lovable, valuable, and capable. To help us create a course specific to your needs, the next step is for you to take two surveys – one about the things that have caused you to not feel lovable, valuable, and capable and the other about the areas in which you do feel lovable, valuable, and capable. After you complete those surveys, your course will be created specifically for you based on your responses. Please expect these two surveys to take approximately 20-30 minutes to complete. </p>\n                </div>  \n                <div class=\"text-center\">\n                    <input ttype=\"submit\" tabindex=\"4\" class=\"form-control btn blue-border\" value=\"Create Your Survey\">\n                </div>\n            </div>\n        </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/survey/survey-instruction/survey-instruction.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SurveyInstructionComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var SurveyInstructionComponent = /** @class */ (function () {
+    function SurveyInstructionComponent() {
+    }
+    SurveyInstructionComponent.prototype.ngOnInit = function () {
+    };
+    SurveyInstructionComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-survey-instruction',
+            template: __webpack_require__("../../../../../src/app/survey/survey-instruction/survey-instruction.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/survey/survey-instruction/survey-instruction.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], SurveyInstructionComponent);
+    return SurveyInstructionComponent;
 }());
 
 
@@ -683,9 +752,15 @@ var SurveyOneComponent = /** @class */ (function () {
     };
     SurveyOneComponent.prototype.submitAnswer = function () {
         var _this = this;
+        for (var i = 0; i < this.limit; i++) {
+            if (!this.questions[i].answer) {
+                this.toastr.error('Please complete all questions.');
+                return;
+            }
+        }
         if (this.limit < this.questions.length) {
-            this.skip += 10;
-            this.limit += 10;
+            this.skip += 20;
+            this.limit += 20;
             return;
         }
         var body = {
@@ -885,9 +960,15 @@ var SurveyTwoComponent = /** @class */ (function () {
     };
     SurveyTwoComponent.prototype.submitAnswer = function () {
         var _this = this;
+        for (var i = 0; i < this.limit; i++) {
+            if (!this.questions[i].answer) {
+                this.toastr.error('Please complete all questions.');
+                return;
+            }
+        }
         if (this.limit < this.questions.length) {
-            this.skip += 10;
-            this.limit += 10;
+            this.skip += 20;
+            this.limit += 20;
             return;
         }
         var body = {
@@ -949,12 +1030,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__myprogress_myprogress_component__ = __webpack_require__("../../../../../src/app/survey/myprogress/myprogress.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_angular2_busy__ = __webpack_require__("../../../../angular2-busy/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_angular2_busy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_angular2_busy__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__survey_instruction_survey_instruction_component__ = __webpack_require__("../../../../../src/app/survey/survey-instruction/survey-instruction.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -991,7 +1074,8 @@ var SurveyModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_10__exercise_exercise_component__["a" /* ExerciseComponent */],
                 __WEBPACK_IMPORTED_MODULE_11__exercise_list_exercise_list_component__["a" /* ExerciseListComponent */],
                 __WEBPACK_IMPORTED_MODULE_12__prepost_survey_prepost_survey_component__["a" /* PrepostSurveyComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__myprogress_myprogress_component__["a" /* MyprogressComponent */]
+                __WEBPACK_IMPORTED_MODULE_13__myprogress_myprogress_component__["a" /* MyprogressComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__survey_instruction_survey_instruction_component__["a" /* SurveyInstructionComponent */]
             ]
         })
     ], SurveyModule);
