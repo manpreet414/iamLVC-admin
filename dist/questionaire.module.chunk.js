@@ -69,7 +69,7 @@ var FormComponent = (function (_super) {
         _this.activatedRoute = activatedRoute;
         _this.klassService = klassService;
         _this.sanitizer = sanitizer;
-        _this.surveyType = ['breifSurvey', 'surveyCourse1', 'surveyCourse1', 'prePostSurvey'];
+        _this.surveyType = ['breifSurvey', 'surveyCourse1', 'surveyCourse2', 'prePostSurvey', 'finalSurvey'];
         _this.baseUrl = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].config.BASE_URL;
         return _this;
     }
