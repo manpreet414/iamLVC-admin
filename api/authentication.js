@@ -77,15 +77,15 @@ const registerUser = async(function *(req,res) {
                 msg: constantObj.messages.emailAlreadyExist,
             })
         } else {
-            var customer = yield stripe.customers.create({
-              description: userObj.email
-            });
+            // var customer = yield stripe.customers.create({
+            //   description: userObj.email
+            // });
             
-            let cardObj = yield addCardInStripe(customer.id,token_id);
-            let amount = 36;
+            // let cardObj = yield addCardInStripe(customer.id,token_id);
+            // let amount = 36;
             
-            let charge = yield addChargeInStripe(amount * 100,"USD",cardObj.multipay_source_id,customer.id);
-            userObj['paymentmethods'] = cardObj;
+            // let charge = yield addChargeInStripe(amount * 100,"USD",cardObj.multipay_source_id,customer.id);
+            // userObj['paymentmethods'] = cardObj;
             let user = new User(userObj);
             //save user info
             let savedUser = yield user.save();
@@ -299,57 +299,82 @@ exports.forgotPassword = function(req, res, next) {
 };
 
 
-exports.resetPassword = function(req, res, next) {
-    req.assert('password', 'Password must be at least 4 characters long').len(4);
-    req.assert('confirm', 'Passwords must match').equals(req.body.password);
-    req.checkParams('token', 'Token is required.').notEmpty();
-    let errors = req.validationErrors();
-    if (errors) {
-        return res.status(400).send({
-            msg: constantObj.messages.requiredParams,
-            err: errors
-        });
-    }
-    console.log(req.params.token);
-    Async.waterfall([
-        function(done) {
-            User.findOne({
-                    passwordResetToken: req.params.token
-                })
-                .exec(function(err, user) {
-                    console.log(err, user)
-                    if (!user) {
-                        return res.status(400).send({
-                            msg: constantObj.messages.passwordResetToken
+    exports.resetPassword = function(req, res, next) {
+        req.assert('password', 'Password must be at least 4 characters long').len(4);
+        req.assert('confirm', 'Passwords must match').equals(req.body.password);
+        req.checkParams('token', 'Token is required.').notEmpty();
+        let errors = req.validationErrors();
+        if (errors) {
+            return res.status(400).send({
+                msg: constantObj.messages.requiredParams,
+                err: errors
+            });
+        }
+        console.log(req.params.token);
+        Async.waterfall([
+            function(done) {
+                User.findOne({
+                        passwordResetToken: req.params.token
+                    })
+                    .exec(function(err, user) {
+                        console.log(err, user)
+                        if (!user) {
+                            return res.status(400).send({
+                                msg: constantObj.messages.passwordResetToken
+                            });
+                        }
+                        user.password = req.body.password;
+                        user.passwordResetToken = undefined;
+                        user.passwordResetExpires = undefined;
+                        user.save(function(err) {
+                            done(err, user);
+                        });
+                    });
+            },
+            function(user, done) {
+                let to = user.email,
+                    from = 'manpreet@iamlvc.com',
+                    subject = '✔ Your password has been changed',
+                    text = 'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
+
+                commonObj.sendMail(to, from, subject, text, function(err, data) {
+                    console.log(err, data);
+                    if (err) {
+                        res.status(400).send({
+                            msg: constantObj.messages.errorInSendingMail,
+                            "err": err
+                        });
+                    } else {
+                        res.status(200).send({
+                            msg: constantObj.messages.mailSentSuccessfully
                         });
                     }
-                    user.password = req.body.password;
-                    user.passwordResetToken = undefined;
-                    user.passwordResetExpires = undefined;
-                    user.save(function(err) {
-                        done(err, user);
-                    });
-                });
-        },
-        function(user, done) {
-            let to = user.email,
-                from = 'manpreet@iamlvc.com',
-                subject = '✔ Your password has been changed',
-                text = 'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
+                })
+            }
+        ]);
+    };
 
-            commonObj.sendMail(to, from, subject, text, function(err, data) {
-                console.log(err, data);
-                if (err) {
-                    res.status(400).send({
-                        msg: constantObj.messages.errorInSendingMail,
-                        "err": err
-                    });
-                } else {
-                    res.status(200).send({
-                        msg: constantObj.messages.mailSentSuccessfully
-                    });
-                }
-            })
+
+exports.addwaitlist = function(req, res, next) {
+    let user = req.body;
+    console.log("waaaaaaaaaaaaaaaa",user)
+    let to = user.email,
+        from = 'manpreet@iamlvc.com',
+        subject = '✔ Regarding New account creation',
+        text = 'Hi '+user.firstName+' want to create account in iamlvc with email: ' + user.email + ' .\n'
+
+    commonObj.sendMail(to, from, subject, text, function(err, data) {
+        console.log(err, data);
+        if (err) {
+            res.status(400).send({
+                msg: constantObj.messages.errorInSendingMail,
+                "err": err
+            });
+        } else {
+            res.status(200).send({
+                error:false,
+                msg: constantObj.messages.mailSentSuccessfully
+            });
         }
-    ]);
-};
+    })
+}

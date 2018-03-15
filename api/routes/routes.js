@@ -12,6 +12,7 @@ module.exports = function(app, express) {
 	app.post('/api/login', authenticationController.login);
 	app.post('/api/forgotpassword', authenticationController.forgotPassword); // Forgot Password
     app.post('/api/reset/:token', authenticationController.resetPassword); // Forgot Password
+    app.post('/api/addwaitlist',authenticationController.addwaitlist)  //addwaitlist
     
     app.get('/api/surveytype/:type',surveyController.surveyType); // Survey Info
   	app.post('/api/addsurvey',surveyController.surveyAdd); // Survey Info
