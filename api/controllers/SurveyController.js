@@ -58,7 +58,7 @@ const saveSurvey = async(function*(req,res) {
         yield survey.save();
         if(surveyType == "surveyCourse1") {
             let answers = ['yes','Yes','YES','YeS','YEs']
-            let interArray = [1, 2, 3, 4, 5, 7, 11, 14, 15, 18, 19, 20, 22, 27, 28, 29, 32, 33, 35, 36, 37, 38, 43, 50, 54];
+            let interArray = [1, 2, 3, 4, 5, 7, 11, 14, 15, 18, 19, 20, 22, 27, 28, 29, 32, 33, 35, 36, 37, 38, 43, 51, 55];
             userSurvey.forEach((obj)=>{
                 if(answers.indexOf(obj.answer)>=0) {
                     interArray = interArray.concat(obj.interventions);

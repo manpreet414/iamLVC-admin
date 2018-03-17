@@ -67,14 +67,20 @@ const registerUser = async(function *(req,res) {
         let userObj          = req.body;
         userObj['fullName']  = userObj.firstName + ' ' + userObj.lastName;
         userObj['is_active'] = true;
-    
+    betaTesterNumber
         let token_id = userObj.token_id;
         let user = yield  User.findOne({ email: req.body.email });
-    
+        let betaTesterNumber = yield  User.findOne({ betaTesterNumber: req.body.betaTesterNumber });
+        
         if(user) {
             return res.status(200).send({
                 error: true,
                 msg: constantObj.messages.emailAlreadyExist,
+            })
+        } else if(betaTesterNumber) {
+            return res.status(200).send({
+                error: true,
+                msg: 'Beta Teseter Number Alredy in Used please try another between 1 to 120',
             })
         } else {
             // var customer = yield stripe.customers.create({

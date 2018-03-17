@@ -20,6 +20,9 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: Date.now()
     },
+    betaTesterNumber:{
+        type:Number
+    },
     breifSurvey: {
         type:Boolean,
         default:false
