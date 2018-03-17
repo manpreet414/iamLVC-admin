@@ -1,0 +1,133 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "angular2-datatable-pagination@git+https://github.com/singhdeepme/angular2-datatable-pagination.git",
+        "scope": null,
+        "escapedName": "angular2-datatable-pagination",
+        "name": "angular2-datatable-pagination",
+        "rawSpec": "git+https://github.com/singhdeepme/angular2-datatable-pagination.git",
+        "spec": "git+https://github.com/singhdeepme/angular2-datatable-pagination.git",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:singhdeepme/angular2-datatable-pagination.git",
+          "sshUrl": "git+ssh://git@github.com/singhdeepme/angular2-datatable-pagination.git",
+          "httpsUrl": "git+https://github.com/singhdeepme/angular2-datatable-pagination.git",
+          "gitUrl": "git://github.com/singhdeepme/angular2-datatable-pagination.git",
+          "shortcut": "github:singhdeepme/angular2-datatable-pagination",
+          "directUrl": "https://raw.githubusercontent.com/singhdeepme/angular2-datatable-pagination/master/package.json"
+        }
+      },
+      "/home/mani/Documents/personal/iamLVC-admin"
+    ]
+  ],
+  "_from": "git+https://github.com/singhdeepme/angular2-datatable-pagination.git",
+  "_id": "angular2-datatable-pagination@0.0.2",
+  "_inCache": true,
+  "_location": "/angular2-datatable-pagination",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "angular2-datatable-pagination@git+https://github.com/singhdeepme/angular2-datatable-pagination.git",
+    "scope": null,
+    "escapedName": "angular2-datatable-pagination",
+    "name": "angular2-datatable-pagination",
+    "rawSpec": "git+https://github.com/singhdeepme/angular2-datatable-pagination.git",
+    "spec": "git+https://github.com/singhdeepme/angular2-datatable-pagination.git",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:singhdeepme/angular2-datatable-pagination.git",
+      "sshUrl": "git+ssh://git@github.com/singhdeepme/angular2-datatable-pagination.git",
+      "httpsUrl": "git+https://github.com/singhdeepme/angular2-datatable-pagination.git",
+      "gitUrl": "git://github.com/singhdeepme/angular2-datatable-pagination.git",
+      "shortcut": "github:singhdeepme/angular2-datatable-pagination",
+      "directUrl": "https://raw.githubusercontent.com/singhdeepme/angular2-datatable-pagination/master/package.json"
+    }
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+https://github.com/singhdeepme/angular2-datatable-pagination.git#2a9c67a3a49971b73b74ed18fc61b4e3b0f9d028",
+  "_shasum": "286900ae9b5d5a4a91a2250a36306e37182ebff3",
+  "_shrinkwrap": null,
+  "_spec": "angular2-datatable-pagination@git+https://github.com/singhdeepme/angular2-datatable-pagination.git",
+  "_where": "/home/mani/Documents/personal/iamLVC-admin",
+  "author": {
+    "name": "chen.kiven@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/Ants24/angular2-datatable-pagination/issues"
+  },
+  "dependencies": {
+    "@angular/common": "^4.2.3",
+    "@angular/core": "^4.2.3",
+    "@angular/platform-browser": "^4.2.3",
+    "lodash": "^4.17.4"
+  },
+  "description": "DataTable component for Angular2 framework",
+  "devDependencies": {
+    "@angular/common": "^4.2.3",
+    "@angular/compiler": "^4.2.3",
+    "@angular/compiler-cli": "^4.2.3",
+    "@angular/core": "^4.2.3",
+    "@angular/platform-browser": "^4.2.3",
+    "@angular/platform-browser-dynamic": "^4.2.3",
+    "@types/jasmine": "^2.5.35",
+    "@types/lodash": "^4.14.37",
+    "codelyzer": "^3.2.0",
+    "core-js": "^2.4.1",
+    "http-server": "^0.9.0",
+    "jasmine-core": "^2.4.1",
+    "karma": "^1.3.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "lodash": "^4.17.4",
+    "phantomjs-prebuilt": "^2.1.7",
+    "remap-istanbul": "^0.9.5",
+    "rimraf": "^2.5.4",
+    "rxjs": "5.4.1",
+    "systemjs": "^0.19.39",
+    "typescript": "~2.3.4",
+    "zone.js": "^0.8.12"
+  },
+  "gitHead": "2a9c67a3a49971b73b74ed18fc61b4e3b0f9d028",
+  "homepage": "https://github.com/Ants24/angular2-datatable-pagination#readme",
+  "keywords": [
+    "angular",
+    "angularjs",
+    "angular2",
+    "ng",
+    "ng2",
+    "table",
+    "pagination",
+    "sort",
+    "sorting"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "angular2-datatable-pagination",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "tslint": "5.3.2"
+  },
+  "readme": "# angular2-datatable-pagination\nfork from [angualr2-datatable](https://github.com/mariuszfoltak/angular2-datatable)  , server pagination  and client pagination\n\n\n[![npm version](https://badge.fury.io/js/angular2-datatable-pagination.svg)](https://badge.fury.io/js/\"angular2-datatable-pagination)\n[![Build Status](https://travis-ci.org/ants24/angular2-datatable-pagination.svg?branch=master)](https://travis-ci.org/ants24/angular2-datatable-pagination)\n[![npm downloads](https://img.shields.io/npm/dm/angular2-datatable-pagination.svg)](https://npmjs.org/angular2-datatable-pagination)\n## Demo\n\nCheck [live demo](http://plnkr.co/edit/4AERPpfUDIvy6W1pwdCd?p=preview) in plunker\n\n## Installation\n\n```\nnpm i -S angular2-datatable-pagination\n```\n\n## Usage example\n\nAppModule.ts\n```typescript\nimport {NgModule} from \"@angular/core\";\n...\nimport {NG2DataTableModule} from \"angular2-datatable-pagination\";\n\n@NgModule({\n    imports: [\n        ...\n        NG2DataTableModule\n    ],\n    ...\n})\nexport class AppModule {\n\n}\n```\n\nserver pagination\n```html\n[mfIsServerPagination]=\"true\"\n```\nUserComponent.html\n```html\n <table class=\"table table-striped\" [mfData]=\"data | dataFilter : filterQuery\" #mf=\"mfDataTable\" [mfRowsOnPage]=\"rowsOnPage\"\n                [(mfSortBy)]=\"sortBy\" [(mfSortOrder)]=\"sortOrder\" [mfActivePage]=\"activePage\" (mfOnPageChange)=\"onPageChange($event)\"\n                [mfIsServerPagination]=\"true\" [(mfAmountOfRows)]=\"itemsTotal\" (mfSortOrderChange)=\"onSortOrder($event)\">\n                <thead>\n                <tr>\n                    <th style=\"width: 10%\"></th>\n                    <th style=\"width: 20%\">\n                        <mfDefaultSorter by=\"name\">Name</mfDefaultSorter>\n                    </th>\n                    <th style=\"width: 40%\">\n                        <mfDefaultSorter by=\"email\">Email</mfDefaultSorter>\n                    </th>\n                    <th style=\"width: 10%\">\n                        <mfDefaultSorter by=\"age\">Age</mfDefaultSorter>\n                    </th>\n                    <th style=\"width: 20%\">\n                        <mfDefaultSorter [by]=\"sortByWordLength\">City</mfDefaultSorter>\n                    </th>\n                </tr>\n                </thead>\n                <tbody>\n                <tr *ngFor=\"let item of mf.data\">\n                    <td>\n                        <button (click)=\"remove(item)\" class=\"btn btn-danger\">x</button>\n                    </td>\n                    <td>{{item.name}}</td>\n                    <td>{{item.email}}</td>\n                    <td class=\"text-right\">{{item.age}}</td>\n                    <td>{{item.city | uppercase}}</td>\n                </tr>\n                </tbody>\n                <tfoot>\n                <tr>\n                    <td colspan=\"5\">\n                        <mfBootstrapPaginator [rowsOnPageSet]=\"[5,10,15]\"></mfBootstrapPaginator>\n                    </td>\n                </tr>\n                </tfoot>\n            </table>\n```\n\nUserComponent.ts\n```typescript\n\nngOnInit(): void {\n        this.loadData();\n    }\n\n    public loadData() {\n        this.http.get(\"/app/data.json\")\n            .subscribe((data) => {\n                setTimeout(() => {\n\n                    this.data = _.orderBy(data.json(), this.sortBy, [this.sortOrder]);\n                    this.data = _.slice(this.data, (this.activePage-1)*this.rowsOnPage, (this.activePage-1)*this.rowsOnPage + this.rowsOnPage);\n                    this.itemsTotal = data.json().length;\n                }, 2000);\n            });\n    }\n\n    public toInt(num: string) {\n        return +num;\n    }\n\n    public sortByWordLength = (a: any) => {\n        return a.city.length;\n    }\n\n    public remove(item) {\n        let index = this.data.indexOf(item);\n        if (index > -1) {\n            this.data.splice(index, 1);\n        }\n    }\n    public onPageChange(event) {\n        this.rowsOnPage = event.rowsOnPage;\n        this.activePage = event.activePage;\n        this.loadData();\n    }\n\n    public onSortOrder(event) {\n        this.loadData();\n    }\n\n\n```\n\nclient pagination  user [angualr2-datatable](https://github.com/mariuszfoltak/angular2-datatable)\nbut you need \n```typescript\nimport {NG2DataTableModule} from \"angular2-datatable-pagination\";\n```\n\n## API\n\n### `mfData` directive\n\n - selector: `table[mfData]`\n - exportAs: `mfDataTable`\n - inputs\n   - `mfData: any[]` - array of data to display in table\n   - `mfRowsOnPage: number` - number of rows should be displayed on page (default: 1000)\n   - `mfActivePage: number` - page number (default: 1)\n   - `mfSortBy: any` - sort by parameter\n   - `mfSortOrder: string` - sort order parameter, \"asc\" or \"desc\"\n   - `mfIsServerPagination: boolean` -default value false\n - outputs\n   - `mfSortByChange: any` - sort by parameter\n   - `mfSortOrderChange: any` - sort order parameter\n   - `mfOnPageChange: any` - page change parameter(rowsOnPage,activePage)\n \n### `mfDefaultSorter` component\n\n - selector: `mfDefaultSorter`\n - inputs\n   - `by: any` - specify how to sort data (argument for lodash function [_.sortBy ](https://lodash.com/docs#sortBy))\n \n### `mfBootstrapPaginator` component\nDisplays buttons for changing current page and number of displayed rows using bootstrap template (css for bootstrap is required). If array length is smaller than current displayed rows on page then it doesn't show button for changing page. If array length is smaller than min value rowsOnPage then it doesn't show any buttons.\n\n - selector: `mfBootstrapPaginator`\n - inputs\n   - `rowsOnPageSet: number` - specify values for buttons to change number of diplayed rows",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ants24/angular2-datatable-pagination.git"
+  },
+  "scripts": {
+    "build": "ngc -p src",
+    "coverage": "http-server -c-1 -o -p 9875 ./coverage",
+    "coverage-remap": "remap-istanbul -i coverage/coverage-final.json -o coverage/coverage-remapped.lcov -t lcovonly",
+    "posttest": "remap-istanbul -i coverage/coverage-final.json -o coverage -t html",
+    "prebuild": "rimraf lib",
+    "pretest": "npm run build",
+    "start": "http-server -c-1 -o -p 8875 .",
+    "test": "karma start karma.conf.js"
+  },
+  "version": "0.0.2"
+}
